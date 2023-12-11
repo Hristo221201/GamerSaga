@@ -11,6 +11,10 @@ import CambiarContraseña from './pages/cambiocontraseña.jsx'
 
 const router = createBrowserRouter([
   {
+    path: "*",
+    element: <Inicio />,
+  },
+  {
     path: "inicio",
     element: <Inicio />,
   },
