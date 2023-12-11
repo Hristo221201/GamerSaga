@@ -274,7 +274,7 @@ export default function PaginaPrincipal() {
                                 </tbody>
                             </table>
                         </div>
-                        <br/>
+                        <br/><br/>
                         <h2 align="center">¿Alguna pregunta rapida?</h2>
                         <div className='line-wh'></div>
                         
