@@ -14,7 +14,7 @@ export default function PaginaPrincipal() {
         };
     }, [])
 
-
+/*
     const PokemonAleatorio = () => {
         const [pokemon, setPokemon] = useState(null);
       
@@ -47,9 +47,26 @@ export default function PaginaPrincipal() {
       
           obtenerPokemonAleatorio();
         }, []); // El segundo argumento [] asegura que useEffect se ejecute solo una vez al montar el componente
+
+        
+        {pokemon ? (
+            <div>
+            <h2>Información del Pokémon:</h2>
+            <p>Nombre: {pokemon.nombre}</p>
+            <p>ID: {pokemon.id}</p>
+            <p>Tipos: {pokemon.tipos.join(', ')}</p>
+            </div>
+        ) : (
+            <p>Cargando información del Pokémon...</p>
+        )};
+
     };
 
 
+        export default PokemonAleatorio;
+
+
+*/
 
     /* FUNCIONES PAGINA PAGINAPRINCIPAL */
     const goto=useNavigate();
@@ -457,16 +474,11 @@ export default function PaginaPrincipal() {
                             </div>
                             <br/>
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
-                            {pokemon ? (
-                                <div>
-                                <h2>Información del Pokémon:</h2>
-                                <p>Nombre: {pokemon.nombre}</p>
-                                <p>ID: {pokemon.id}</p>
-                                <p>Tipos: {pokemon.tipos.join(', ')}</p>
-                                </div>
-                            ) : (
-                                <p>Cargando información del Pokémon...</p>
-                            )};
+                            
+                            
+                            
+
+
                         </div>
 
                         <a href="#inicioPagina" className="botonHaciaArriba">
