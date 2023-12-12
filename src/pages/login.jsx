@@ -1,6 +1,8 @@
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
+import "./dbuse";
+import "./bdconection";
 
 export default function Login() {
   useEffect(() => {
@@ -86,12 +88,11 @@ export default function Login() {
           //Swal.fire('Introduce una contraseña válida');
           alert('Introduce una contraseña válida');
         } else {
-          /*var enlacePaginaPrincipal=document.getElementById("botonInicioSesion");
-          enlacePaginaPrincipal.href="../PaginaPrincipal/PaginaPrincipal.html";*/
           goto("/paginaprincipal");
           
           return contraseña && valorUsuario;
         }
+        
       };
       
       // Validar registro
@@ -107,6 +108,33 @@ export default function Login() {
           //Swal.fire('Introduce una contraseña válida');
           alert('Introduce una contraseña válida');
         } else {
+
+          const nombreRegistro = document.getElementById('nombreRegistro').value;
+          const emailRegistro = document.getElementById('emailRegistro').value;
+          const passRegistro = document.getElementById('passRegistro').value;
+
+          // Registra al usuario con correo y contraseña
+          firebase.auth().createUserWithEmailAndPassword(emailRegistro, passRegistro)
+            .then((userCredential) => {
+              // Actualiza el nombre del usuario
+              return userCredential.user.updateProfile({
+                displayName: nombreRegistro
+              });
+            })
+            .then(() => {
+              // Usuario registrado con éxito y nombre actualizado
+              const user = firebase.auth().currentUser;
+              console.log('Usuario registrado:', user);
+            })
+            .catch((error) => {
+              // Maneja errores durante el registro
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.error('Error durante el registro:', errorCode, errorMessage);
+            });
+
+            alert("Usuario registrado con exito");
+
           var div1=document.getElementById('registro');
           var div2=document.getElementById('container');
           
@@ -185,9 +213,9 @@ export default function Login() {
                 </span>
                 
                 <form>
-                    <input type="text" name="nombreRegistro" placeholder="Nombre usuario" />
-                    <input type="email" id="emailRegistro" name="emailRegistro" placeholder="E-mail" />
-                    <input type="password" id="passRegistro" name="passRegistro" placeholder="Contraseña" />
+                    <input type="text" name="nombreRegistro" placeholder="Nombre usuario" required />
+                    <input type="email" id="emailRegistro" name="emailRegistro" placeholder="E-mail" required />
+                    <input type="password" id="passRegistro" name="passRegistro" placeholder="Contraseña" required />
                     <a href="#" className="aLogin" onClick={validarRegistro} id="botonRegistroAcceder">Acceder</a>
                 </form>
             </div>

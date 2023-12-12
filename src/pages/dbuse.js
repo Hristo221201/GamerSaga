@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import User from "./bdconection.jsx";
+import { User } from "./bdconection.js";
 const app=express();
 app.use(express.json());
 app.use(cors());
@@ -31,4 +31,4 @@ app.post("/delete", async(req, res) => {
     res.send({ msg:"Deleted" });
 });
 
-app.listen(4000, () => console.log("Up & Running *4000"));
+app.listen(8080, () => console.log("Up & Running *8080"));
