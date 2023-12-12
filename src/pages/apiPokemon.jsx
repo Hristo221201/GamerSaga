@@ -46,19 +46,38 @@ export default function PokemonAleatorio() {
     }, []);
   
     return (
-      <div id="divPokemonAPI">
+      <>
         {pokemons.map((pokemon) => (
-          <div>
-            <h2>{pokemon.nombre}</h2>
-            <img src={pokemon.imagen} alt={pokemon.nombre} />
-            <p>Tipos: {pokemon.tipos.join(', ')}</p>
-            <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
-            <hr />
+          <div className="divRecuadro">
+
+            <a href="#" className='aPokemons'>
+                <div className="divEspaciado"></div>
+
+                <div class="nombrePokemon">
+                    <h2>{pokemon.nombre}</h2>
+                    <img src={pokemon.imagen} alt={pokemon.nombre} />
+                </div>
+
+				<div class="descripcionPokemon">
+                    <p>Tipos: {pokemon.tipos.join(', ')}</p>
+                    <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+                </div>
+            </a>
+
           </div>
         ))}
-      </div>
+      </>
     );
 };
 
 
 // Nombre -> pokemon.name     Imagen -> pokemon.front_default      Altura -> pokemon.height        Tipo -> pokemon.types['name'] (hacer bucle q recorra el array types)
+/*
+
+<h2>{pokemon.nombre}</h2>
+<img src={pokemon.imagen} alt={pokemon.nombre} />
+<p>Tipos: {pokemon.tipos.join(', ')}</p>
+<p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+<hr />
+
+*/

@@ -849,3 +849,67 @@ a.aCambioContraseña:hover{
   width: 100%;
   text-align: center;
 }
+
+
+
+
+
+/* CSS POKEMONAPI */
+.divRecuadro {
+  text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.aPokemons {
+  margin: 15px;
+  box-shadow: 0px 0px 18px 0px rgb(0 0 0 / 17%);
+  border-radius: 15px !important;
+  max-width: 220px;
+  min-width: 220px;
+  padding: 20px;
+  background: linear-gradient(16deg, #e9e7f2, #ffffff)!important;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.aPokemons::before {
+  content: "";
+  /*background-image: url("/wp-content/uploads/2022/09/Favicon-500.png");*/ /* Ruta a la imagen isotipo.png */
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se ajuste completamente dentro del contenedor */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  height: 13%; /* Ajusta la altura al 100% del contenedor */
+  position: absolute;
+  top: 18px;
+  left: 0;
+  border-radius: 15px;
+}
+
+.aPokemons:hover {
+  text-decoration: none;
+  transform: scale(1.1); /* Hacemos un zoom al 110% del tamaño original */
+}
+
+a.aPokemons {
+  text-decoration: none;
+}
+
+.divEspaciado {
+  margin-bottom: 18px; /* Espaciado opcional entre la imagen y el texto */
+}
+
+.nombrePokemon {
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 18px;
+  border-radius: 10px 10px 0 0;
+  font-family: avenirnextcyr-heavy;
+  color: #3f2a56;
+}
+
+.descripcionPokemon {
+  color: #3f2a56;
+}
