@@ -34,16 +34,8 @@ export default function PokemonAleatorio() {
       const obtener4PokemonAleatorios = async () => {
         const nuevosPokemons = [];
         for (let i = 0; i < 4; i++) {
-          var aPokemon = document.getElementById("aPokemon");
           const pokemon = await obtenerPokemonAleatorio();
           if (pokemon) {
-            if(aPokemon.click) {
-                
-                const pokemon = await obtenerPokemonAleatorio();
-                nuevosPokemons.push(pokemon);
-                
-            }
-
             nuevosPokemons.push(pokemon);
           }
         }
