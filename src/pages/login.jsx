@@ -2,7 +2,7 @@ import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { auth } from "./bdconection";
 
 export default function Login() {
@@ -134,7 +134,7 @@ export default function Login() {
 
               };
 
-            }});
+          }}, []);
 
           var div1=document.getElementById('registro');
           var div2=document.getElementById('container');
