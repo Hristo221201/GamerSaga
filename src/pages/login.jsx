@@ -1,8 +1,8 @@
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-import "./dbuse";
-import "./bdconection";
+import "./dbuse.js";
+import "./bdconection.js";
 
 export default function Login() {
   useEffect(() => {
