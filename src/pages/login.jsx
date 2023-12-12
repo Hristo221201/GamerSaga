@@ -16,8 +16,6 @@ export default function Login() {
   }, [])
 
 
-    const auth=useauth();
-
     /* Funciones */
     function logIn() {
         var div1=document.getElementById('login-button');
