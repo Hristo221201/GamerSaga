@@ -134,7 +134,11 @@ export default function Login() {
 
               };
 
+              RegistroUsuario();
+              
           }}, []);
+
+          
 
           var div1=document.getElementById('registro');
           var div2=document.getElementById('container');
