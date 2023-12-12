@@ -23,15 +23,16 @@ export default function PokemonAleatorio () {
     fetchPokemonData();
   }, []);
 
+
+  // Nombre -> pokemon.name     Imagen -> pokemon.back_default      Altura -> pokemon.height        Tipo -> pokemon.types['name'] (hacer bucle q recorra el array types)
+
   return (
-    <div>
-      <h1>Random Pokemon List</h1>
-      <ul>
+    <div className='divPokemonAPI'>
+      <div>
         {pokemonList.map((pokemon) => (
-          <li key={pokemon.name}>{pokemon.name}</li>
+          <p key={pokemon.name}>{pokemon.name}</p>
         ))}
-      </ul>
-      <a href="/result">Ver Resultado</a>
+      </div>
     </div>
   );
 };
