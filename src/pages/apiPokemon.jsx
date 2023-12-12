@@ -46,9 +46,9 @@ export default function PokemonAleatorio() {
     }, []);
   
     return (
-      <>
+      <div className="divRecuadro">
+
         {pokemons.map((pokemon) => (
-          <div className="divRecuadro">
 
             <a href="#" className='aPokemons'>
                 <div className="divEspaciado"></div>
@@ -64,9 +64,9 @@ export default function PokemonAleatorio() {
                 </div>
             </a>
 
-          </div>
         ))}
-      </>
+        
+      </div>
     );
 };
 
