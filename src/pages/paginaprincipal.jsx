@@ -25,6 +25,7 @@ export default function PaginaPrincipal() {
         let divRocketLeague=document.getElementById("contenido-RocketLeague");
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
+        let divPokemon=document.getElementById("contenido-Pokemon");
     
         divRocketLeague.style.display="block";
         divLeagueOfLegends.style.display="none";
@@ -36,6 +37,7 @@ export default function PaginaPrincipal() {
         let divRocketLeague=document.getElementById("contenido-RocketLeague");
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
+        let divPokemon=document.getElementById("contenido-Pokemon");
     
         divRocketLeague.style.display="none";
         divLeagueOfLegends.style.display="block";
@@ -47,6 +49,7 @@ export default function PaginaPrincipal() {
         let divRocketLeague=document.getElementById("contenido-RocketLeague");
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
+        let divPokemon=document.getElementById("contenido-Pokemon");
     
         divRocketLeague.style.display="none";
         divLeagueOfLegends.style.display="none";
