@@ -901,7 +901,7 @@ a.aPokemons {
   margin-bottom: 18px; /* Espaciado opcional entre la imagen y el texto */
 }
 
-.nombrePokemon {
+.nombreYfotoPokemon {
   text-align: center;
   padding: 10px 5px;
   font-size: 18px;

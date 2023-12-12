@@ -4,7 +4,7 @@ export default function PokemonAleatorio() {
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
-      const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 898) + 1;
+      const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 1010) + 1;
   
       const obtenerPokemonAleatorio = async () => {
         const pokemonId = obtenerNumeroAleatorio();
@@ -34,8 +34,16 @@ export default function PokemonAleatorio() {
       const obtener4PokemonAleatorios = async () => {
         const nuevosPokemons = [];
         for (let i = 0; i < 4; i++) {
+          var aPokemon = document.getElementById("aPokemon");
           const pokemon = await obtenerPokemonAleatorio();
           if (pokemon) {
+            if(aPokemon.click) {
+                
+                const pokemon = await obtenerPokemonAleatorio();
+                nuevosPokemons.push(pokemon);
+                
+            }
+
             nuevosPokemons.push(pokemon);
           }
         }
@@ -50,17 +58,17 @@ export default function PokemonAleatorio() {
 
         {pokemons.map((pokemon) => (
 
-            <a href="#" className='aPokemons' id={pokemon.nombre}>
+            <a href="#" className='aPokemons' id="aPokemon">
                 <div className="divEspaciado"></div>
 
-                <div class="nombrePokemon">
-                    <h2>{pokemon.nombre}</h2>
-                    <img src={pokemon.imagen} alt={pokemon.nombre} />
+                <div class="nombreYfotoPokemon">
+                    <h2 id="nombrePokemon">{pokemon.nombre}</h2>
+                    <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
                 </div>
 
                 <div class="descripcionPokemon">
-                    <p>Tipos: {pokemon.tipos.join(', ')}</p>
-                    <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+                    <p>Tipos: <span id="tiposPokemon">{pokemon.tipos.join(', ')}</span></p>
+                    <p>Habilidades: <span id="habilidadesPokemon">{pokemon.habilidades.join(', ')}</span></p>
                 </div>
             </a>
 
