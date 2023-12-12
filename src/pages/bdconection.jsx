@@ -9,7 +9,7 @@ const firebaseConfig = {
     "appId": "1:611132529087:web:388808e4de4dafa3ee690a"
 };
 
-firebase.initializeAoo(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
-const Users=db.collection("Users");
-module.exports=Users;
+const User=db.collection("Users");
+module.exports=User;

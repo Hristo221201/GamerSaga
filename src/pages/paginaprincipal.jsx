@@ -1,6 +1,44 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-import PokemonAleatorio from './apiPokemon';
+import PokemonAleatorio from './apiPokemon.jsx';
+
+import express from "express";
+import cors from "cors";
+import User from "./bdconection.jsx";
+const app=express();
+app.use(express.json());
+app.use(cors());
+
+app.get("/", async(req, res) => {
+    const snapshot = await User.get();
+    const list = snapshot.docs.map((doc) => ({ id: doc.id,  ...doc.data() }));
+    res.send(list);
+});
+
+app.post("/create", async(req, res) => {
+    const data = req.body;
+    await User.add({ data });
+    res.send({ msg:"User Added" });
+});
+
+app.post("/update", async(req, res) => {
+    const id = req.body.id;
+    delete req.body.id;
+    const data = req.body;
+    await User.doc(id).update(data);
+    res.send({ msg:"Updated" });
+});
+
+app.post("/delete", async(req, res) => {
+    const id = req.body.id;
+    await User.doc(id).delete();
+    res.send({ msg:"Deleted" });
+});
+
+app.listen(4000, () => console.log("Up & Running *4000"));
+
+
+
 
 export default function PaginaPrincipal() {
 
@@ -84,59 +122,6 @@ export default function PaginaPrincipal() {
     }
     */
     
-    
-    
-    // Función para acceder a un objeto aleatorio de la API de Key-Drop/CounterStrike
-    async function objetoAleatorioApiCounterStrike() {
-        const apiUrl = "https://key-drop.com/cdn-cgi/image/format=auto,width=270,dpr=1/uploads/skins"; // https://rl.exchange/es/shop
-        const apiKey = "6Ld2uggaAAAAAG9YRZYZkIhCdS38FZYpY9RRYkwN";
-    
-        try {
-          // Realizar la solicitud GET utilizando fetch
-          const response = await fetch(`${apiUrl}/random?api_key=${apiKey}`,{method: "GET", mode: "no-cors",});
-      
-          // Verificar si la respuesta es exitosa (código de estado 200)
-          if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status}`);
-          }
-      
-          // Parsear la respuesta como JSON
-          const data = await response.json();
-      
-          // Procesar los datos del recurso aleatorio
-    
-          // Mostrar en el div debajo del boton 4 objetos aleatorios y un boton que ponga recargar para que cambie los 4 objetos aleatorios!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          console.log(data);
-        } catch (error) {
-          console.error("Error al realizar la solicitud:", error);
-        }
-    }
-    
-    // Función para acceder a un objeto aleatorio de la API de Key-Drop/RocketLeague
-    async function objetoAleatorioApiRocketLeague() {
-        const apiUrl = "https://api.imgur.com/3/image";
-        const apiKey = "6LeZRdsZAAAAAAKi0GQhhuU7ssa0-txaoeiiRIEd";
-    
-        try {
-          // Realizar la solicitud GET utilizando fetch
-          const response = await fetch(`${apiUrl}/random?api_key=${apiKey}`,{method: "GET", mode: "no-cors",});
-      
-          // Verificar si la respuesta es exitosa (código de estado 200)
-          if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status}`);
-          }
-      
-          // Parsear la respuesta como JSON
-          const data = await response.json();
-      
-          // Procesar los datos del recurso aleatorio
-    
-          // Mostrar en el div debajo del boton 4 objetos aleatorios y un boton que ponga recargar para que cambie los 4 objetos aleatorios!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          console.log(data);
-        } catch (error) {
-          console.error("Error al realizar la solicitud:", error);
-        }
-    }
 
     /* Funcion enviarPreguntaRapida */
     function enviarPreguntaRapida() {
@@ -335,8 +320,6 @@ export default function PaginaPrincipal() {
                                 <iframe width="960" height="515" src="https://www.youtube.com/embed/wodNhn9wh8E?si=Std8TygsY3XBcU4t" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                             </div>
 
-                            <br/>
-                            <button onClick={objetoAleatorioApiRocketLeague}>Mostrar un objeto aleatorio de la API</button>
                         </div>
 
                         <div id="contenido-LeagueOfLegends">
@@ -412,9 +395,6 @@ export default function PaginaPrincipal() {
                                 <h3 className="textoh3">Este es un video de algunas de las mejores jugadas</h3>
                                 <iframe width="960" height="515" src="https://www.youtube.com/embed/AINLFl9cKN0?si=t0vujq8S1KgYiwW9" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                             </div>
-
-                            <br/>
-                            <button onClick={objetoAleatorioApiCounterStrike}>Mostrar un objeto aleatorio de la API</button>
                             
                         </div>
 

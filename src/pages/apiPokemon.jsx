@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import express from "express";
-import cors from "cors";
-import User from "./bdconection";
-const app=express();
-app.use(express.json());
-app.use(cors());
 
 export default function PokemonAleatorio() {
     const [pokemons, setPokemons] = useState([]);
