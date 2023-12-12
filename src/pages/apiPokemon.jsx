@@ -46,8 +46,8 @@ export default function PokemonAleatorio() {
     }, []);
   
     return (
-      <div>
-        {pokemons.map((pokemon, index) => (
+      <div id="divPokemonAPI">
+        {pokemons.map((pokemon) => (
           <div>
             <h2>{pokemon.nombre}</h2>
             <img src={pokemon.imagen} alt={pokemon.nombre} />
