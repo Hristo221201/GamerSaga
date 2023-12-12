@@ -50,21 +50,19 @@ export default function PokemonAleatorio() {
 
         {pokemons.map((pokemon) => (
 
-            <div id="divPokemon">
-                <a href="#" className='aPokemons'>
-                    <div className="divEspaciado"></div>
+            <a href="#" className='aPokemons' id={pokemon.nombre}>
+                <div className="divEspaciado"></div>
 
-                    <div class="nombrePokemon">
-                        <h2>{pokemon.nombre}</h2>
-                        <img src={pokemon.imagen} alt={pokemon.nombre} />
-                    </div>
+                <div class="nombrePokemon">
+                    <h2>{pokemon.nombre}</h2>
+                    <img src={pokemon.imagen} alt={pokemon.nombre} />
+                </div>
 
-                    <div class="descripcionPokemon">
-                        <p>Tipos: {pokemon.tipos.join(', ')}</p>
-                        <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
-                    </div>
-                </a>
-            </div>
+                <div class="descripcionPokemon">
+                    <p>Tipos: {pokemon.tipos.join(', ')}</p>
+                    <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+                </div>
+            </a>
 
         ))}
 
