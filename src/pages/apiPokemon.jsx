@@ -30,7 +30,7 @@ export default function PokemonAleatorio () {
     <div className='divPokemonAPI'>
       <div>
         {pokemonList.map((pokemon) => (
-            <img src={pokemon.back_default}></img>,
+            <img src={pokemon.back_default}>{pokemon.back_default}</img>,
             <p key={pokemon.name}>{pokemon.name}</p>
         ))}
       </div>
