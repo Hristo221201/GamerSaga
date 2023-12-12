@@ -24,13 +24,13 @@ export default function PokemonAleatorio () {
   }, []);
 
 
-  // Nombre -> pokemon.name     Imagen -> pokemon.back_default      Altura -> pokemon.height        Tipo -> pokemon.types['name'] (hacer bucle q recorra el array types)
+  // Nombre -> pokemon.name     Imagen -> pokemon.front_default      Altura -> pokemon.height        Tipo -> pokemon.types['name'] (hacer bucle q recorra el array types)
 
   return (
     <div className='divPokemonAPI'>
       <div>
         {pokemonList.map((pokemon) => (
-            <img src={pokemon.back_default}>{pokemon.back_default}</img>,
+            <img src={pokemon["sprites"]["front_default"]}>{pokemon["sprites"]["front_default"]}</img>,
             //<p key={pokemon.name}>{pokemon.name}</p>
         ))}
       </div>
