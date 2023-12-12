@@ -422,9 +422,7 @@ export default function PaginaPrincipal() {
                             <br/>
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
                             
-                            
                             <PokemonAleatorio />
-
 
                         </div>
 

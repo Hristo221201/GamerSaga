@@ -1,52 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const PokemonAleatorio = () => {
-  const [pokemon, setPokemon] = useState(null);
+export default function PokemonAleatorio () {
+  const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
-    const obtenerPokemonAleatorio = async () => {
-      // Número total de Pokémon en la API
-      const totalPokemon = 898;  // Este número puede cambiar según la versión de la API
-
-      // Obtener un número aleatorio entre 1 y el total de Pokémon
-      const numeroPokemon = Math.floor(Math.random() * totalPokemon) + 1;
-
-      // Construir la URL de la API con el número de Pokémon aleatorio
-      const url = `https://pokeapi.co/api/v2/pokemon/${numeroPokemon}/`;
-
+    const fetchPokemonData = async () => {
       try {
-        // Realizar la solicitud a la API
-        const response = await fetch(url);
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
         const data = await response.json();
+        const randomPokemonIds = Array.from({ length: 4 }, () =>
+          Math.floor(Math.random() * data.results.length)
+        );
 
-        // Actualizar el estado con la información del Pokémon
-        setPokemon({
-          nombre: data.name.capitalize(),
-          id: data.id,
-          tipos: data.types.map(tipo => tipo.type.name.capitalize())
-        });
+        const selectedPokemon = randomPokemonIds.map((id) => data.results[id]);
+
+        setPokemonList(selectedPokemon);
       } catch (error) {
-        console.error('Error al obtener información del Pokémon:', error);
+        console.error('Error fetching Pokemon data:', error);
       }
     };
 
-    obtenerPokemonAleatorio();
-  }, []); // El segundo argumento [] asegura que useEffect se ejecute solo una vez al montar el componente
+    fetchPokemonData();
+  }, []);
 
   return (
     <div>
-      {pokemon ? (
-        <div>
-          <h2>Información del Pokémon:</h2>
-          <p>Nombre: {pokemon.nombre}</p>
-          <p>ID: {pokemon.id}</p>
-          <p>Tipos: {pokemon.tipos.join(', ')}</p>
-        </div>
-      ) : (
-        <p>Cargando información del Pokémon...</p>
-      )}
+      <h1>Random Pokemon List</h1>
+      <ul>
+        {pokemonList.map((pokemon) => (
+          <li key={pokemon.name}>{pokemon.name}</li>
+        ))}
+      </ul>
+      <a href="/result">Ver Resultado</a>
     </div>
   );
 };
-
-export default PokemonAleatorio;
