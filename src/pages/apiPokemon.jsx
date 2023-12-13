@@ -33,8 +33,6 @@ export default function PokemonAleatorio({ key }) {
         }
       };
 
-
-
     }, [key]);
 
     const obtener4PokemonAleatorios = async () => {
@@ -48,7 +46,7 @@ export default function PokemonAleatorio({ key }) {
       setPokemons(nuevosPokemons);
     };
 
-
+    obtener4PokemonAleatorios();
 
     const pokemonClickado = async (pokemon) => {
       // Guardar los datos del Pokémon seleccionado en el historial
@@ -91,8 +89,6 @@ export default function PokemonAleatorio({ key }) {
           ))}
 
         </div>
-
-        <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Cambiar Pokemons</button>
       </>
     );
 };

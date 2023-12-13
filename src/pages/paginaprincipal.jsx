@@ -167,11 +167,11 @@ export default function PaginaPrincipal() {
 
 
     /* Apartado recargar elementos API */
-    /*const [key, setKey] = useState(0);
+    const [key, setKey] = useState(0);
 
     const recargarApi = () => {
         setKey((prevKey) => prevKey + 1);
-    };*/
+    };
 
 
     return (
@@ -379,7 +379,7 @@ export default function PaginaPrincipal() {
                             
                             <div align="center">
                                 <PokemonAleatorio key={key} />
-                                
+                                <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={recargarApi}>Cambiar Pokemons</button>
                             </div>
                             
                             <br/><br/>
