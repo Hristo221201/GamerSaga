@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function PokemonAleatorio({ key }) {
     const [pokemons, setPokemons] = useState([]);
+    const [selectedPokemon, setSelectedPokemon] = useState(null);
 
     useEffect(() => {
       const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 1010) + 1;
@@ -31,19 +32,24 @@ export default function PokemonAleatorio({ key }) {
         }
       };
   
-      const obtener4PokemonAleatorios = async () => {
-        const nuevosPokemons = [];
-        for (let i = 0; i < 4; i++) {
-          const pokemon = await obtenerPokemonAleatorio();
-          if (pokemon) {
-            nuevosPokemons.push(pokemon);
-          }
-        }
-        setPokemons(nuevosPokemons);
-      };
-  
       obtener4PokemonAleatorios();
     }, [key]);
+
+    const obtener4PokemonAleatorios = async () => {
+      const nuevosPokemons = [];
+      for (let i = 0; i < 4; i++) {
+        const pokemon = await obtenerPokemonAleatorio();
+        if (pokemon) {
+          nuevosPokemons.push(pokemon);
+        }
+      }
+      setPokemons(nuevosPokemons);
+    };
+
+    const pokemonClickado = (pokemon) => {
+      setSelectedPokemon(pokemon);
+      console.log(selectedPokemon);
+    };
   
     return (
       <>
@@ -51,7 +57,7 @@ export default function PokemonAleatorio({ key }) {
 
           {pokemons.map((pokemon) => (
 
-              <a href="#" className='aPokemons' id="aPokemon">
+              <a href="#" className='aPokemons' id="aPokemon" key={pokemon.nombre} onClick={() => pokemonClickado(pokemon)}>
                   <div className="divEspaciado"></div>
 
                   <div class="nombreYfotoPokemon">
