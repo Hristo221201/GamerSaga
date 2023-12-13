@@ -377,12 +377,12 @@ export default function PaginaPrincipal() {
                             <br/>
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
                             
-                            <div>
+                            <div align="center">
                                 <PokemonAleatorio key={key} />
-                                <button align="center" className="botonRecargarAPI" id="botonRecargarAPI" onClick={recargarApi}>Cambiar Pokemons</button>
+                                <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={recargarApi}>Cambiar Pokemons</button>
                             </div>
                             
-                            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/>
 
                         </div>
 
