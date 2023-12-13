@@ -38,23 +38,21 @@ export default function PokemonAleatorio({ key }) {
 
       miFuncionAsyncRef.current = obtenerPokemonAleatorio;
 
-      const obtener4PokemonAleatorios = async () => {
-        const nuevosPokemons = [];
-        for (let i = 0; i < 4; i++) {
-          const pokemon = await obtenerPokemonAleatorio();
-          if (pokemon) {
-            nuevosPokemons.push(pokemon);
-          }
-        }
-        setPokemons(nuevosPokemons);
-      };
-  
-      obtener4PokemonAleatorios();
-  
-      
-
     }, [key]);
   
+    const obtener4PokemonAleatorios = () => {
+      const nuevosPokemons = [];
+      for (let i = 0; i < 4; i++) {
+        const pokemon = miFuncionAsyncRef.current;
+        if (pokemon) {
+          nuevosPokemons.push(pokemon);
+        }
+      }
+      setPokemons(nuevosPokemons);
+    };
+
+    obtener4PokemonAleatorios();
+
     const pokemonClickado = async (pokemon) => {
       // Guardar los datos del Pokémon seleccionado en el historial
       setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
