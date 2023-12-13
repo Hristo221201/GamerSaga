@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-export default function PokemonAleatorio() { // { key }
+export default function PokemonAleatorio({ key }) {
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
-
-    //useEffect(() => {
+    
+    useEffect(() => {
       const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 1010) + 1;
-  
+      
       const obtenerPokemonAleatorio = async () => {
         const pokemonId = obtenerNumeroAleatorio();
         const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`;
@@ -33,23 +33,23 @@ export default function PokemonAleatorio() { // { key }
         }
       };
 
+      const obtener4PokemonAleatorios = async () => {
+        const nuevosPokemons = [];
+        for (let i = 0; i < 4; i++) {
+          const pokemon = await obtenerPokemonAleatorio();
+          if (pokemon) {
+            nuevosPokemons.push(pokemon);
+          }
+        }
+        setPokemons(nuevosPokemons);
+      };
+  
+      obtener4PokemonAleatorios();
+  
       
 
-    //}, [key]);
-
-    const obtener4PokemonAleatorios = async () => {
-      const nuevosPokemons = [];
-      for (let i = 0; i < 4; i++) {
-        const pokemon = await obtenerPokemonAleatorio();
-        if (pokemon) {
-          nuevosPokemons.push(pokemon);
-        }
-      }
-      setPokemons(nuevosPokemons);
-    };
-
-    obtener4PokemonAleatorios();
-
+    }, [key]);
+  
     const pokemonClickado = async (pokemon) => {
       // Guardar los datos del Pokémon seleccionado en el historial
       setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
@@ -67,7 +67,7 @@ export default function PokemonAleatorio() { // { key }
       setSelectedPokemon(nuevoPokemon);
       console.log(selectedPokemon);
     };
-  
+
     return (
       <>
         <div className="divRecuadro">
