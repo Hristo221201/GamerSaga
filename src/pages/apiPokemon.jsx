@@ -41,34 +41,43 @@ export default function PokemonAleatorio() {
     }, []);
   
     const obtener4PokemonAleatorios = async () => {
-      const nuevosPokemons = [];
-      for (let i = 0; i < 4; i++) {
-        const pokemon = await miFuncionAsyncRef.current();
-        if (pokemon) {
-          nuevosPokemons.push(pokemon);
+      if (miFuncionAsyncRef.current) { 
+        const nuevosPokemons = [];
+        for (let i = 0; i < 4; i++) {
+          const pokemon = await miFuncionAsyncRef.current();
+          if (pokemon) {
+            nuevosPokemons.push(pokemon);
+          }
         }
+        setPokemons(nuevosPokemons);
+        console.log('Función asíncrona ejecutada desde otra función asíncrona');
+      } else {
+        console.error('La función asíncrona no está disponible todavía.');
       }
-      setPokemons(nuevosPokemons);
     };
 
-    obtener4PokemonAleatorios();
-
     const pokemonClickado = async (pokemon) => {
-      // Guardar los datos del Pokémon seleccionado en el historial
-      setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
-      console.log(pokemonHistory);
+      if (miFuncionAsyncRef.current) { 
+        // Guardar los datos del Pokémon seleccionado en el historial
+        setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
+        console.log(pokemonHistory);
 
-      // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
-      const nuevoPokemon = await miFuncionAsyncRef.current();
-      setPokemons((prevPokemons) =>
-        prevPokemons.map((prevPokemon) =>
-          prevPokemon.nombre === pokemon.nombre ? nuevoPokemon : prevPokemon
-        )
-      );
+        // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
+        const nuevoPokemon = await miFuncionAsyncRef.current();
+        setPokemons((prevPokemons) =>
+          prevPokemons.map((prevPokemon) =>
+            prevPokemon.nombre === pokemon.nombre ? nuevoPokemon : prevPokemon
+          )
+        );
 
-      // Establecer el nuevo Pokémon como seleccionado
-      setSelectedPokemon(nuevoPokemon);
-      console.log(selectedPokemon);
+        // Establecer el nuevo Pokémon como seleccionado
+        setSelectedPokemon(nuevoPokemon);
+        console.log(selectedPokemon);
+
+        console.log('Función asíncrona ejecutada desde otra función asíncrona');
+      } else {
+        console.error('La función asíncrona no está disponible todavía.');
+      }
     };
 
     return (
@@ -94,6 +103,9 @@ export default function PokemonAleatorio() {
           ))}
 
         </div>
+
+        <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Cambiar Pokemons</button>
+
       </>
     );
 };
