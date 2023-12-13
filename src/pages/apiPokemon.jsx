@@ -42,6 +42,9 @@ export default function PokemonAleatorio() {
   
     const obtener4PokemonAleatorios = async () => {
       if (miFuncionAsyncRef.current) { 
+        var textoBotonPokemons = document.getElementById("botonRecargarAPI");
+        textoBotonPokemons.textContent="Cambiar Pokemons";
+
         const nuevosPokemons = [];
         for (let i = 0; i < 4; i++) {
           const pokemon = await miFuncionAsyncRef.current();
@@ -104,8 +107,9 @@ export default function PokemonAleatorio() {
 
         </div>
 
-        <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Cambiar Pokemons</button>
-
+        <div align="center">
+          <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Mostrar Pokemons</button>
+        </div>
       </>
     );
 };
