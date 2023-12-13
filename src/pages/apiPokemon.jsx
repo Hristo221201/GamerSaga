@@ -47,7 +47,7 @@ export default function PokemonAleatorio() {
 
     const recargarApi = () => {
       // Manejador de clic para recargar los datos
-      obtener4PokemonAleatorios();
+      PokemonAleatorio();
     };
   
     return (
