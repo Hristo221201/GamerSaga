@@ -3,6 +3,15 @@ import { useRef } from 'react';
 import PokemonsFavoritos from './pokemonsFavoritos.jsx';
 
 export default function PokemonAleatorio({ key }) {
+  useEffect(() => {
+    // Agrega la clase específica para la página 2 al body
+    document.body.classList.add('body-paginaPokemon');
+
+    // Limpia la clase al desmontar el componente
+    return () => {
+        document.body.classList.remove('body-paginaPokemon');
+    };
+  }, [])
 
 
     const [pokemons, setPokemons] = useState([]);
@@ -40,14 +49,6 @@ export default function PokemonAleatorio({ key }) {
       };
 
       miFuncionAsyncRef.current = obtenerPokemonAleatorio;
-
-      // Agrega la clase específica para la página 2 al body
-      document.body.classList.add('body-paginaPokemon');
-
-      // Limpia la clase al desmontar el componente
-      return () => {
-          document.body.classList.remove('body-paginaPokemon');
-      };
 
     }, [key]);
   
