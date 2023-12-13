@@ -85,10 +85,8 @@ export default function Login() {
       
         if(!validarEmail(valorUsuario)) {
           Swal.fire('Introduce una dirección de correo electrónico válida');
-          //alert('Introduce una dirección de correo electrónico válida');
         } else if(contraseña.length < 8) {
           Swal.fire('Introduce una contraseña válida');
-          //alert('Introduce una contraseña válida');
         } else {
           goto("/paginaprincipal");
           

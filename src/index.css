@@ -691,7 +691,7 @@ div.line-wh {
 .body-usuario {
   background-color: #d8d7d5;
   font-family: "Asap", sans-serif;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -700,7 +700,6 @@ h1.usuarioh1 {
 }
 
 .formusuario {
-  overflow: hidden;
   background-color: white;
   padding: 40px 30px 30px 30px;
   border-radius: 10px;
@@ -820,6 +819,7 @@ h1.usuarioh1 {
 .body-cambiocontraseña {
   background-color: rgb(172, 168, 168);
   height: 100vh;
+  overflow: hidden;
 }
 
 a.aCambioContraseña {
