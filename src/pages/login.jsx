@@ -116,7 +116,7 @@ export default function Login() {
                   } else if(contraseña.length < 8) {
                     //Swal.fire('Introduce una contraseña válida');
                     alert('Introduce una contraseña válida');
-                  }
+                  } else {
 
                   /*
                   // Crea el usuario en Firebase Authentication
@@ -147,6 +147,7 @@ export default function Login() {
           div2.style.display='block';
           
           return contraseña && valorCorreo;
+        }
         
       };
       
