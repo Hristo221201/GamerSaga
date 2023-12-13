@@ -44,28 +44,37 @@ export default function PokemonAleatorio() {
   
       obtener4PokemonAleatorios();
     }, []);
+
+    const recargarApi = () => {
+      // Manejador de clic para recargar los datos
+      obtener4PokemonAleatorios();
+    };
   
     return (
-      <div className="divRecuadro">
+      <>
+        <div className="divRecuadro">
 
-        {pokemons.map((pokemon) => (
+          {pokemons.map((pokemon) => (
 
-            <a href="#" className='aPokemons' id="aPokemon">
-                <div className="divEspaciado"></div>
+              <a href="#" className='aPokemons' id="aPokemon">
+                  <div className="divEspaciado"></div>
 
-                <div class="nombreYfotoPokemon">
-                    <h2 id="nombrePokemon">{pokemon.nombre}</h2>
-                    <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
-                </div>
+                  <div class="nombreYfotoPokemon">
+                      <h2 id="nombrePokemon">{pokemon.nombre}</h2>
+                      <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
+                  </div>
 
-                <div class="descripcionPokemon">
-                    <p>Tipos: <span id="tiposPokemon">{pokemon.tipos.join(', ')}</span></p>
-                    <p>Habilidades: <span id="habilidadesPokemon">{pokemon.habilidades.join(', ')}</span></p>
-                </div>
-            </a>
+                  <div class="descripcionPokemon">
+                      <p>Tipos: <span id="tiposPokemon">{pokemon.tipos.join(', ')}</span></p>
+                      <p>Habilidades: <span id="habilidadesPokemon">{pokemon.habilidades.join(', ')}</span></p>
+                  </div>
+              </a>
 
-        ))}
+          ))}
 
-      </div>
+        </div>
+
+        <button onClick={recargarApi}>Cambiar Pokemons</button>
+      </>
     );
 };
