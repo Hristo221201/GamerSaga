@@ -8,6 +8,7 @@ import Login from './pages/login.jsx'
 import Paginaprincipal from './pages/paginaprincipal.jsx'
 import Usuario from './pages/usuario.jsx'
 import CambiarContraseña from './pages/cambiocontraseña.jsx'
+import PokemonAleatorio from './pages/apiPokemon.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "cambiocontraseña",
     element: <CambiarContraseña />,
+  },
+  {
+    path: "apiPokemon",
+    element: <PokemonAleatorio />,
   }
 ]);
 

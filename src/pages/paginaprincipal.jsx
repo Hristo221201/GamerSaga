@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import PokemonAleatorio from './apiPokemon.jsx';
+import PokemonsFavoritos from './pokemonsFavoritos.jsx';
 
 export default function PaginaPrincipal() {
 
@@ -27,11 +28,13 @@ export default function PaginaPrincipal() {
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
         let divPokemon=document.getElementById("contenido-Pokemon");
+        let divFavoritos=document.getElementById("contenido-Favoritos");
     
         divRocketLeague.style.display="block";
         divLeagueOfLegends.style.display="none";
         divCounterStrike.style.display="none";
         divPokemon.style.display="none";
+        divFavoritos.style.display="none";
     }
     
     function mostrarContenidoLeagueOfLegends() {
@@ -39,11 +42,13 @@ export default function PaginaPrincipal() {
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
         let divPokemon=document.getElementById("contenido-Pokemon");
+        let divFavoritos=document.getElementById("contenido-Favoritos");
     
         divRocketLeague.style.display="none";
         divLeagueOfLegends.style.display="block";
         divCounterStrike.style.display="none";
         divPokemon.style.display="none";
+        divFavoritos.style.display="none";
     }
     
     function mostrarContenidoCounterStrike() {
@@ -51,11 +56,13 @@ export default function PaginaPrincipal() {
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
         let divPokemon=document.getElementById("contenido-Pokemon");
+        let divFavoritos=document.getElementById("contenido-Favoritos");
     
         divRocketLeague.style.display="none";
         divLeagueOfLegends.style.display="none";
         divCounterStrike.style.display="block";
         divPokemon.style.display="none";
+        divFavoritos.style.display="none";
     }
     
     function mostrarPokemon() {
@@ -63,11 +70,13 @@ export default function PaginaPrincipal() {
         let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
         let divCounterStrike=document.getElementById("contenido-CounterStrike");
         let divPokemon=document.getElementById("contenido-Pokemon");
+        let divFavoritos=document.getElementById("contenido-Favoritos");
     
         divRocketLeague.style.display="none";
         divLeagueOfLegends.style.display="none";
         divCounterStrike.style.display="none";
         divPokemon.style.display="block";
+        divFavoritos.style.display="none";
     }
 
     /* DEJAR COMO MEJORA
@@ -166,13 +175,20 @@ export default function PaginaPrincipal() {
     }
 
 
-    /* Apartado recargar elementos API */
-    /*const [key, setKey] = useState(0);
-
-    const recargarApi = () => {
-        setKey((prevKey) => prevKey + 1);
-    };
-*/
+    /* FUNCION MOSTRAR FAVORITOS */
+    function mostrarFavoritos() {
+        let divRocketLeague=document.getElementById("contenido-RocketLeague");
+        let divLeagueOfLegends=document.getElementById("contenido-LeagueOfLegends");
+        let divCounterStrike=document.getElementById("contenido-CounterStrike");
+        let divPokemon=document.getElementById("contenido-Pokemon");
+        let divFavoritos=document.getElementById("contenido-Favoritos");
+    
+        divRocketLeague.style.display="none";
+        divLeagueOfLegends.style.display="none";
+        divCounterStrike.style.display="none";
+        divPokemon.style.display="none";
+        divFavoritos.style.display="block";
+    }
 
     return (
         <>
@@ -181,15 +197,12 @@ export default function PaginaPrincipal() {
 
                     <div id="parteDerMenu">
                         <div className="contenedor0Menu">
-                            <img src="ImagenesYvideos/iconoEstrellaVacia.png" className="imagen"/>
-                            <div className="menu-desplegable">
-                                <a href="" className="menu-item">Hola</a>
-                            </div>
+                            <img src="ImagenesYvideos/iconoEstrellaVacia.png" className="imagen" onClick={mostrarFavoritos} />
                         </div>
                         <div className="contenedor1Menu">
                             <img src="ImagenesYvideos/iconoPLAY.png" className="imagen" />
                             <div className="menu-desplegable">
-                                <a href="" onClick={mostrarContenidoRocketLeague} className="menu-item">Rocket League</a>
+                                <a href="#" onClick={mostrarContenidoRocketLeague} className="menu-item">Rocket League</a>
                             </div>
                         </div>
                         <div className="contenedor2Menu">
@@ -377,13 +390,12 @@ export default function PaginaPrincipal() {
                             <br/>
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
                             
-                            
-                                <PokemonAleatorio />
+                            <PokemonAleatorio />
                                 
-                            
-                            
-                            
+                        </div>
 
+                        <div id="contenido-Favoritos">
+                            <PokemonsFavoritos />
                         </div>
 
                         <a href="#inicioPagina" className="botonHaciaArriba">

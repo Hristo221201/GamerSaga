@@ -856,6 +856,12 @@ a.aCambioContraseña:hover{
 
 
 /* CSS POKEMONAPI */
+.body-paginaPokemon {
+  background: linear-gradient(to top, #d8d7d5 97%, white);
+  height: 100vh;
+  overflow: hidden;
+}
+
 .divRecuadro {
   text-align: center;
 	display: flex;
@@ -930,4 +936,12 @@ a.aPokemons {
   color: #2196F3;
   border-color: #2196F3;
   background: transparent;
+}
+
+
+/* CSS POKEMON FAVORITOS */
+.body-pokemonFavoritos {
+  background: linear-gradient(to top, #d8d7d5 97%, white);
+  height: 100vh;
+  overflow-y: auto;
 }

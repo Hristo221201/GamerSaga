@@ -4,10 +4,7 @@ import 'sweetalert2/dist/sweetalert2.css'
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-/*
-import { useState } from "react";
-import { auth } from "./bdconection";
-*/
+
 export default function Login() {
   useEffect(() => {
       // Agrega la clase específica para la página 2 al body
@@ -98,48 +95,17 @@ export default function Login() {
       // Validar registro
       function validarRegistro() {
 
-          /*useEffect(() => {
-            const RegistroUsuario = () => {
-              const [nombreRegistro, setNombre] = useState("");
-              const [emailRegistro, setEmail] = useState("");
-              const [passRegistro, setPassword] = useState("");
-            
-              const usuarioRegistro = async () => {
-                try {*/
-
-                  const correo = document.getElementById('emailRegistro');
-                  const valorCorreo = correo.value.trim();
-                  const contraseña = document.getElementById('passRegistro').value;
-                
-                  if(!validarEmail(valorCorreo)) {
-                    Swal.fire('Introduce una dirección de correo electrónico válida');
-                    //alert('Introduce una dirección de correo electrónico válida');
-                  } else if(contraseña.length < 8) {
-                    Swal.fire('Introduce una contraseña válida');
-                    //alert('Introduce una contraseña válida');
-                  } else {
-
-                  /*
-                  // Crea el usuario en Firebase Authentication
-                  const response = await auth.createUserWithEmailAndPassword(emailRegistro, passRegistro);
-            
-                  // Actualiza el nombre del usuario
-                  await response.user.updateProfile({
-                    displayName: nombreRegistro,
-                  });
-            
-                  console.log("Usuario registrado correctamente:", response.user);
-                } catch (error) {
-                  console.error("Error al registrar usuario:", error.message);
-                }
-
-              };
-
-              RegistroUsuario();
-              
-          }}, []);*/
-
-          
+        const correo = document.getElementById('emailRegistro');
+        const valorCorreo = correo.value.trim();
+        const contraseña = document.getElementById('passRegistro').value;
+      
+        if(!validarEmail(valorCorreo)) {
+          Swal.fire('Introduce una dirección de correo electrónico válida');
+          //alert('Introduce una dirección de correo electrónico válida');
+        } else if(contraseña.length < 8) {
+          Swal.fire('Introduce una contraseña válida');
+          //alert('Introduce una contraseña válida');
+        } else {
 
           var div1=document.getElementById('registro');
           var div2=document.getElementById('container');

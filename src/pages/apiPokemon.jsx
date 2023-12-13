@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
+import PokemonsFavoritos from './pokemonsFavoritos.jsx';
 
 export default function PokemonAleatorio({ key }) {
+  useEffect(() => {
+    // Agrega la clase específica para la página 2 al body
+    document.body.classList.add('body-paginaPokemon');
+
+    // Limpia la clase al desmontar el componente
+    return () => {
+        document.body.classList.remove('body-paginaPokemon');
+    };
+  }, [])
+
+
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
@@ -58,14 +70,11 @@ export default function PokemonAleatorio({ key }) {
         console.error('La función asíncrona no está disponible todavía.');
       }
     };
-  
-    const pokemonsSeleccionados = [];
+
     const pokemonClickado = async (pokemon) => {
       if (miFuncionAsyncRef.current) { 
         // Guardar los datos del Pokémon seleccionado en el historial
-        
-        pokemonsSeleccionados.push(pokemon);
-        setPokemonHistory(pokemonsSeleccionados);
+        setPokemonHistory([...pokemonHistory, pokemon]);
         console.log(pokemonHistory);
 
         // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
@@ -94,12 +103,12 @@ export default function PokemonAleatorio({ key }) {
               <a href="#" className='aPokemons' id="aPokemon" key={pokemon.nombre} onClick={() => pokemonClickado(pokemon)}>
                   <div className="divEspaciado"></div>
 
-                  <div class="nombreYfotoPokemon">
+                  <div className="nombreYfotoPokemon">
                       <h2 id="nombrePokemon">{pokemon.nombre}</h2>
                       <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
                   </div>
 
-                  <div class="descripcionPokemon">
+                  <div className="descripcionPokemon">
                       <p>Tipos: <span id="tiposPokemon">{pokemon.tipos.join(', ')}</span></p>
                       <p>Habilidades: <span id="habilidadesPokemon">{pokemon.habilidades.join(', ')}</span></p>
                   </div>
@@ -117,29 +126,3 @@ export default function PokemonAleatorio({ key }) {
       </>
     );
 };
-
-/*
-const pokemonClickado = async (pokemon) => {
-      if (miFuncionAsyncRef.current) { 
-        // Guardar los datos del Pokémon seleccionado en el historial
-        setPokemonHistory([...prevHistory, pokemon]);
-        console.log(pokemonHistory);
-
-        // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
-        const nuevoPokemon = await miFuncionAsyncRef.current();
-        setPokemons((prevPokemons) =>
-          prevPokemons.map((prevPokemon) =>
-            prevPokemon.nombre === pokemon.nombre ? nuevoPokemon : prevPokemon
-          )
-        );
-
-        // Establecer el nuevo Pokémon como seleccionado
-        setSelectedPokemon(nuevoPokemon);
-        console.log(selectedPokemon);
-
-        console.log('Función asíncrona ejecutada desde otra función asíncrona');
-      } else {
-        console.error('La función asíncrona no está disponible todavía.');
-      }
-    };
-*/
