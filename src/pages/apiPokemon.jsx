@@ -75,7 +75,7 @@ export default function PokemonAleatorio({ key }) {
 
           {pokemons.map((pokemon) => (
 
-              <a href="#" className='aPokemons' id="aPokemon" key={pokemon.nombre} onClick={() => pokemonClickado(pokemon)}>
+              <a href="#" className='aPokemons' id="aPokemon" key={pokemon.nombre} onClick={pokemonClickado(pokemon)}>
                   <div className="divEspaciado"></div>
 
                   <div class="nombreYfotoPokemon">
