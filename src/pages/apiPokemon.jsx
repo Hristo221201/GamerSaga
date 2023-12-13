@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 
-export default function PokemonAleatorio() {
+export default function PokemonAleatorio({ key }) {
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
@@ -38,7 +38,7 @@ export default function PokemonAleatorio() {
 
       miFuncionAsyncRef.current = obtenerPokemonAleatorio;
 
-    }, []);
+    }, [key]);
   
     const obtener4PokemonAleatorios = async () => {
       if (miFuncionAsyncRef.current) { 
