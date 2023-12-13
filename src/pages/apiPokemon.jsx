@@ -63,7 +63,7 @@ export default function PokemonAleatorio({ key }) {
       //if (miFuncionAsyncRef.current) { 
         // Guardar los datos del Pokémon seleccionado en el historial
         setPokemonHistory([...pokemonHistory, pokemon]);
-        
+        console.log(pokemonHistory);
 
         // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
         const nuevoPokemon = await miFuncionAsyncRef.current();
@@ -75,7 +75,6 @@ export default function PokemonAleatorio({ key }) {
 
         // Establecer el nuevo Pokémon como seleccionado
         setSelectedPokemon(nuevoPokemon);
-        console.log(pokemonHistory[0]);
 /*
         console.log('Función asíncrona ejecutada desde otra función asíncrona');
       } else {
@@ -89,7 +88,7 @@ export default function PokemonAleatorio({ key }) {
 
           {pokemons.map((pokemon) => (
 
-              <a href="#" className='aPokemons' id="aPokemon" key={pokemon.nombre} onClick={() => pokemonClickado(pokemon)}>
+              <a href="#" className='aPokemons' id="aPokemon" key={pokemon.nombre} onClick={pokemonClickado(pokemon)}>
                   <div className="divEspaciado"></div>
 
                   <div class="nombreYfotoPokemon">
@@ -106,6 +105,8 @@ export default function PokemonAleatorio({ key }) {
           ))}
 
         </div>
+
+        <br/>
 
         <div align="center">
           <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Mostrar Pokemons</button>
