@@ -81,11 +81,11 @@ export default function Login() {
         const contraseña = document.getElementById('contraseña').value;
       
         if(!validarEmail(valorUsuario)) {
-          //Swal.fire('Introduce una dirección de correo electrónico válida');
-          alert('Introduce una dirección de correo electrónico válida');
+          Swal.fire('Introduce una dirección de correo electrónico válida');
+          //alert('Introduce una dirección de correo electrónico válida');
         } else if(contraseña.length < 8) {
-          //Swal.fire('Introduce una contraseña válida');
-          alert('Introduce una contraseña válida');
+          Swal.fire('Introduce una contraseña válida');
+          //alert('Introduce una contraseña válida');
         } else {
           goto("/paginaprincipal");
           
@@ -111,11 +111,11 @@ export default function Login() {
                   const contraseña = document.getElementById('passRegistro').value;
                 
                   if(!validarEmail(valorCorreo)) {
-                    //Swal.fire('Introduce una dirección de correo electrónico válida');
-                    alert('Introduce una dirección de correo electrónico válida');
+                    Swal.fire('Introduce una dirección de correo electrónico válida');
+                    //alert('Introduce una dirección de correo electrónico válida');
                   } else if(contraseña.length < 8) {
-                    //Swal.fire('Introduce una contraseña válida');
-                    alert('Introduce una contraseña válida');
+                    Swal.fire('Introduce una contraseña válida');
+                    //alert('Introduce una contraseña válida');
                   } else {
 
                   /*
@@ -157,8 +157,8 @@ export default function Login() {
         const valorCorreo = correo.value.trim();
       
         if(!validarEmail(valorCorreo)) {
-          //Swal.fire('Introduce una dirección de correo electrónico válida');
-          alert('Introduce una dirección de correo electrónico válida');
+          Swal.fire('Introduce una dirección de correo electrónico válida');
+          //alert('Introduce una dirección de correo electrónico válida');
         } else {
           var enlaceBotonContraseñaNueva=document.getElementById("botonContraseñaNueva");
           enlaceBotonContraseñaNueva.target="_blank";
