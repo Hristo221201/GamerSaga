@@ -62,7 +62,7 @@ export default function PokemonAleatorio({ key }) {
     const pokemonClickado = async (pokemon) => {
       if (miFuncionAsyncRef.current) { 
         // Guardar los datos del Pokémon seleccionado en el historial
-        setPokemonHistory([...prevHistory, pokemon]);
+        setPokemonHistory([...pokemonHistory, pokemon]);
         console.log(pokemonHistory);
 
         // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
