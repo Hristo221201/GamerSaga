@@ -5,8 +5,6 @@ export default function PokemonAleatorio({ key }) {
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
 
-    const obtenerPokemonAleatorio = "";
-
     useEffect(() => {
       const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 1010) + 1;
   
@@ -35,39 +33,41 @@ export default function PokemonAleatorio({ key }) {
         }
       };
 
-      
+      const obtener4PokemonAleatorios = async () => {
+        const nuevosPokemons = [];
+        for (let i = 0; i < 4; i++) {
+          const pokemon = await obtenerPokemonAleatorio();
+          if (pokemon) {
+            nuevosPokemons.push(pokemon);
+          }
+        }
+        setPokemons(nuevosPokemons);
+      };
   
       obtener4PokemonAleatorios();
+
+
+      const pokemonClickado = async (pokemon) => {
+        // Guardar los datos del Pokémon seleccionado en el historial
+        setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
+        console.log(pokemonHistory);
+  
+        // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
+        const nuevoPokemon = await obtenerPokemonAleatorio();
+        setPokemons((prevPokemons) =>
+          prevPokemons.map((prevPokemon) =>
+            prevPokemon.nombre === pokemon.nombre ? nuevoPokemon : prevPokemon
+          )
+        );
+  
+        // Establecer el nuevo Pokémon como seleccionado
+        setSelectedPokemon(nuevoPokemon);
+        console.log(selectedPokemon);
+      };
+
+      pokemonClickado();
+
     }, [key]);
-
-    const obtener4PokemonAleatorios = async () => {
-      const nuevosPokemons = [];
-      for (let i = 0; i < 4; i++) {
-        const pokemon = await obtenerPokemonAleatorio();
-        if (pokemon) {
-          nuevosPokemons.push(pokemon);
-        }
-      }
-      setPokemons(nuevosPokemons);
-    };
-
-    const pokemonClickado = async (pokemon) => {
-      // Guardar los datos del Pokémon seleccionado en el historial
-      setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
-      console.log(pokemonHistory);
-
-      // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
-      const nuevoPokemon = await obtenerPokemonAleatorio();
-      setPokemons((prevPokemons) =>
-        prevPokemons.map((prevPokemon) =>
-          prevPokemon.nombre === pokemon.nombre ? nuevoPokemon : prevPokemon
-        )
-      );
-
-      // Establecer el nuevo Pokémon como seleccionado
-      setSelectedPokemon(nuevoPokemon);
-      console.log(selectedPokemon);
-    };
   
     return (
       <>
