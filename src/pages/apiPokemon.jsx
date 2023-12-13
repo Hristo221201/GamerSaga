@@ -40,10 +40,10 @@ export default function PokemonAleatorio({ key }) {
 
     }, [key]);
   
-    const obtener4PokemonAleatorios = () => {
+    const obtener4PokemonAleatorios = async () => {
       const nuevosPokemons = [];
       for (let i = 0; i < 4; i++) {
-        const pokemon = miFuncionAsyncRef.current;
+        const pokemon = await miFuncionAsyncRef.current();
         if (pokemon) {
           nuevosPokemons.push(pokemon);
         }
@@ -59,7 +59,7 @@ export default function PokemonAleatorio({ key }) {
       console.log(pokemonHistory);
 
       // Obtener un nuevo Pokémon aleatorio y reemplazar el seleccionado
-      const nuevoPokemon = await obtenerPokemonAleatorio();
+      const nuevoPokemon = await miFuncionAsyncRef.current();
       setPokemons((prevPokemons) =>
         prevPokemons.map((prevPokemon) =>
           prevPokemon.nombre === pokemon.nombre ? nuevoPokemon : prevPokemon
