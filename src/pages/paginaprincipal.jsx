@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PokemonAleatorio from './apiPokemon.jsx';
 
 export default function PaginaPrincipal() {
