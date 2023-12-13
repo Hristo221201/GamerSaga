@@ -5,7 +5,7 @@ export default function PokemonAleatorio({ key }) {
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
 
-    useEffect(() => {
+    //useEffect(() => {
       const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 1010) + 1;
   
       const obtenerPokemonAleatorio = async () => {
@@ -33,9 +33,9 @@ export default function PokemonAleatorio({ key }) {
         }
       };
 
-      obtenerPokemonAleatorio();
+      
 
-    }, [key]);
+    //}, [key]);
 
     const obtener4PokemonAleatorios = async () => {
       const nuevosPokemons = [];
