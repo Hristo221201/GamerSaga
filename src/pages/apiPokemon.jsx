@@ -75,7 +75,7 @@ export default function PokemonAleatorio({ key }) {
 
         // Establecer el nuevo Pokémon como seleccionado
         setSelectedPokemon(nuevoPokemon);
-        console.log(pokemonHistory);
+        console.log(pokemonHistory[0]);
 /*
         console.log('Función asíncrona ejecutada desde otra función asíncrona');
       } else {
