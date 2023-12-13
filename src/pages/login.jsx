@@ -1,10 +1,10 @@
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-
+/*
 import { useState } from "react";
 import { auth } from "./bdconection";
-
+*/
 export default function Login() {
   useEffect(() => {
       // Agrega la clase específica para la página 2 al body
@@ -97,14 +97,14 @@ export default function Login() {
       // Validar registro
       function validarRegistro() {
 
-          useEffect(() => {
+          /*useEffect(() => {
             const RegistroUsuario = () => {
               const [nombreRegistro, setNombre] = useState("");
               const [emailRegistro, setEmail] = useState("");
               const [passRegistro, setPassword] = useState("");
             
               const usuarioRegistro = async () => {
-                try {
+                try {*/
 
                   const correo = document.getElementById('emailRegistro');
                   const valorCorreo = correo.value.trim();
@@ -118,7 +118,7 @@ export default function Login() {
                     alert('Introduce una contraseña válida');
                   }
 
-
+                  /*
                   // Crea el usuario en Firebase Authentication
                   const response = await auth.createUserWithEmailAndPassword(emailRegistro, passRegistro);
             
@@ -136,7 +136,7 @@ export default function Login() {
 
               RegistroUsuario();
               
-          }}, []);
+          }}, []);*/
 
           
 
@@ -218,9 +218,9 @@ export default function Login() {
                 </span>
                 
                 <form>
-                    <input type="text" value={nombreRegistro} name="nombreRegistro" onChange={(e) => setNombre(e.target.value)} placeholder="Nombre usuario" required />
-                    <input type="email" id="emailRegistro" name="emailRegistro" onChange={(e) => setEmail(e.target.value)} placeholder="E-mail" required />
-                    <input type="password" id="passRegistro" name="passRegistro" onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required />
+                    <input type="text" id="nombreRegistro" /*value={nombreRegistro}*/ name="nombreRegistro" /*onChange={(e) => setNombre(e.target.value)}*/ placeholder="Nombre usuario" required />
+                    <input type="email" id="emailRegistro" /*value={emailRegistro}*/ name="emailRegistro" /*onChange={(e) => setEmail(e.target.value)}*/ placeholder="E-mail" required />
+                    <input type="password" id="passRegistro" /*value={passRegistro}*/ name="passRegistro" /*onChange={(e) => setPassword(e.target.value)}*/ placeholder="Contraseña" required />
                     <a href="#" className="aLogin" onClick={validarRegistro} id="botonRegistroAcceder">Acceder</a>
                 </form>
             </div>
