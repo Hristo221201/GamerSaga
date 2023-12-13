@@ -33,6 +33,8 @@ export default function PokemonAleatorio({ key }) {
         }
       };
 
+      obtenerPokemonAleatorio();
+
     }, [key]);
 
     const obtener4PokemonAleatorios = async () => {
