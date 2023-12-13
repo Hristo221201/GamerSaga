@@ -914,3 +914,20 @@ a.aPokemons {
 .descripcionPokemon {
   color: #3f2a56;
 }
+
+.botonRecargarAPI {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 20px;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.botonRecargarAPI:hover {
+  color: #2196F3;
+  border-color: #2196F3;
+  background: transparent;
+}

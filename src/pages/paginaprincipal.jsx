@@ -379,9 +379,9 @@ export default function PaginaPrincipal() {
                             
                             <div>
                                 <PokemonAleatorio key={key} />
-                                <button onClick={recargarApi}>Cambiar Pokemons</button>
+                                <button align="center" id="botonRecargarAPI" onClick={recargarApi}>Cambiar Pokemons</button>
                             </div>
-
+                            
                         </div>
 
                         <a href="#inicioPagina" className="botonHaciaArriba">
