@@ -58,11 +58,12 @@ export default function PokemonAleatorio({ key }) {
         console.error('La función asíncrona no está disponible todavía.');
       }
     };
-
+  
+    const pokemonsSeleccionados = [];
     const pokemonClickado = async (pokemon) => {
       if (miFuncionAsyncRef.current) { 
         // Guardar los datos del Pokémon seleccionado en el historial
-        const pokemonsSeleccionados = [];
+        
         pokemonsSeleccionados.push(pokemon);
         setPokemonHistory(pokemonsSeleccionados);
         console.log(pokemonHistory);
