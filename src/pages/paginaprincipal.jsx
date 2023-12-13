@@ -164,6 +164,26 @@ export default function PaginaPrincipal() {
         document.getElementById('imagenMostradaCounterStrike').src="ImagenesYvideos/CounterStrike/awpFoto.png";
     }
 
+
+    /* Funcion cambiarPokemons */
+    function cambiarPokemons() {
+        // Obtener elemento
+        var spanPokemonAPI = document.getElementById("spanPokemonAPI");
+
+        // Clonar el elemento antes de borrarlo
+        var clon = spanPokemonAPI.cloneNode(true);
+        
+        // Obtener el padre del elemento
+        var padre = spanPokemonAPI.parentNode;
+
+        // Borrar el elemento original
+        padre.removeChild(spanPokemonAPI);
+
+        // Añadir el clon de nuevo al mismo lugar
+        padre.appendChild(clon);
+
+    }
+
     return (
         <>
             <div className="container1">
@@ -367,7 +387,11 @@ export default function PaginaPrincipal() {
                             <br/>
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
                             
-                            <PokemonAleatorio />
+                            <span id="spanPokemonAPI">
+                                <PokemonAleatorio />
+                            </span>
+
+                            <button onClick={cambiarPokemons}>Cambiar Pokemons</button>
 
                         </div>
 
