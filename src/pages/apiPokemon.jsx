@@ -59,10 +59,8 @@ export default function PokemonAleatorio() {
       }
     };
 
-    obtener4PokemonAleatorios();
-
     const pokemonClickado = async (pokemon) => {
-      if (miFuncionAsyncRef.current) { 
+      //if (miFuncionAsyncRef.current) { 
         // Guardar los datos del Pokémon seleccionado en el historial
         setPokemonHistory((prevHistory) => [...prevHistory, pokemon]);
         console.log(pokemonHistory);
@@ -79,10 +77,10 @@ export default function PokemonAleatorio() {
         setSelectedPokemon(nuevoPokemon);
         console.log(selectedPokemon);
 
-        console.log('Función asíncrona ejecutada desde otra función asíncrona');
+      /*console.log('Función asíncrona ejecutada desde otra función asíncrona');
       } else {
         console.error('La función asíncrona no está disponible todavía.');
-      }
+      }*/
     };
 
     return (
