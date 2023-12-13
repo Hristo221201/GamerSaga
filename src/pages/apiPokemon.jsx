@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
 
 export default function PokemonAleatorio({ key }) {
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
+
+    const miFuncionAsyncRef = useRef(null);
     
     useEffect(() => {
       const obtenerNumeroAleatorio = () => Math.floor(Math.random() * 1010) + 1;
@@ -32,6 +35,8 @@ export default function PokemonAleatorio({ key }) {
           return null;
         }
       };
+
+      miFuncionAsyncRef.current = obtenerPokemonAleatorio;
 
       const obtener4PokemonAleatorios = async () => {
         const nuevosPokemons = [];
