@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import PokemonAleatorio from './apiPokemon.jsx';
 
 export default function PaginaPrincipal() {
@@ -163,6 +164,15 @@ export default function PaginaPrincipal() {
     function mostrarAwp() {
         document.getElementById('imagenMostradaCounterStrike').src="ImagenesYvideos/CounterStrike/awpFoto.png";
     }
+
+
+    /* Apartado recargar elementos API */
+    const [key, setKey] = useState(0);
+
+    const recargarApi = () => {
+        setKey((prevKey) => prevKey + 1);
+    };
+
 
     return (
         <>
@@ -367,7 +377,10 @@ export default function PaginaPrincipal() {
                             <br/>
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
                             
-                            <PokemonAleatorio />
+                            <div>
+                                <PokemonAleatorio key={key} />
+                                <button onClick={recargarApi}>Cambiar Pokemons</button>
+                            </div>
 
                         </div>
 

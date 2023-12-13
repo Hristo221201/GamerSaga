@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function PokemonAleatorio() {
+export default function PokemonAleatorio({ key }) {
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
@@ -43,12 +43,7 @@ export default function PokemonAleatorio() {
       };
   
       obtener4PokemonAleatorios();
-    }, []);
-
-    const recargarApi = () => {
-      // Manejador de clic para recargar los datos
-      PokemonAleatorio();
-    };
+    }, [key]);
   
     return (
       <>
@@ -73,8 +68,6 @@ export default function PokemonAleatorio() {
           ))}
 
         </div>
-
-        <button onClick={recargarApi}>Cambiar Pokemons</button>
       </>
     );
 };
