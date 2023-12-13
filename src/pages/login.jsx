@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.css'
+
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
