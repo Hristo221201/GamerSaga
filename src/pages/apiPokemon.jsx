@@ -31,20 +31,20 @@ export default function PokemonAleatorio({ key }) {
           return null;
         }
       };
+
+      const obtener4PokemonAleatorios = async () => {
+        const nuevosPokemons = [];
+        for (let i = 0; i < 4; i++) {
+          const pokemon = await obtenerPokemonAleatorio();
+          if (pokemon) {
+            nuevosPokemons.push(pokemon);
+          }
+        }
+        setPokemons(nuevosPokemons);
+      };
   
       obtener4PokemonAleatorios();
     }, [key]);
-
-    const obtener4PokemonAleatorios = async () => {
-      const nuevosPokemons = [];
-      for (let i = 0; i < 4; i++) {
-        const pokemon = await obtenerPokemonAleatorio();
-        if (pokemon) {
-          nuevosPokemons.push(pokemon);
-        }
-      }
-      setPokemons(nuevosPokemons);
-    };
 
     const pokemonClickado = (pokemon) => {
       setSelectedPokemon(pokemon);
