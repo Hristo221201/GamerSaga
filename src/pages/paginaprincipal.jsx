@@ -382,7 +382,7 @@ export default function PaginaPrincipal() {
                                 <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={recargarApi}>Cambiar Pokemons</button>
                             </div>
                             
-                            <br/><br/>
+                            
 
                         </div>
 
