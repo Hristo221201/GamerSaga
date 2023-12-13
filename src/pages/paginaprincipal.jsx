@@ -387,7 +387,7 @@ export default function PaginaPrincipal() {
                             <div align="center">
                                 <img src="ImagenesYvideos/LogoPokemon.png" className="imagenLogoPokemon"/>
                             </div>
-                            <br/>
+                            
                             <p align="center" className="textoEncimaDeSidebar">Aqui tienes 4 pokemons aleatorios</p>
                             
                             <PokemonAleatorio />
