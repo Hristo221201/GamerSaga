@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function PokemonAleatorio({ key }) {
+export default function PokemonAleatorio() { // { key }
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [pokemonHistory, setPokemonHistory] = useState([]);
