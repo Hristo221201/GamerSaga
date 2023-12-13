@@ -59,6 +59,8 @@ export default function PokemonAleatorio() {
       }
     };
 
+    obtener4PokemonAleatorios();
+
     const pokemonClickado = async (pokemon) => {
       if (miFuncionAsyncRef.current) { 
         // Guardar los datos del Pokémon seleccionado en el historial
