@@ -85,6 +85,7 @@ export default function Login() {
         } else if(contraseña.length < 8) {
           Swal.fire('Introduce una contraseña válida');
         } else {
+          
           goto("/paginaprincipal");
           
           return contraseña && valorUsuario;
@@ -94,10 +95,12 @@ export default function Login() {
       
       // Validar registro
       function validarRegistro() {
-
+        const nombreUsuario = document.getElementById("nombreRegistro");
         const correo = document.getElementById('emailRegistro');
         const valorCorreo = correo.value.trim();
         const contraseña = document.getElementById('passRegistro').value;
+
+        const nuevoUsuario="";
       
         if(!validarEmail(valorCorreo)) {
           Swal.fire('Introduce una dirección de correo electrónico válida');
@@ -106,6 +109,8 @@ export default function Login() {
           Swal.fire('Introduce una contraseña válida');
           //alert('Introduce una contraseña válida');
         } else {
+          
+          nuevoUsuario.post("/create", {nombreUsuario,valorCorreo,contraseña});
 
           var div1=document.getElementById('registro');
           var div2=document.getElementById('container');
