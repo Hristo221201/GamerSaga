@@ -701,7 +701,7 @@ h1.usuarioh1 {
 
 .formusuario {
   overflow: hidden;
-  background-color: white;
+  background-color: black;
   padding: 40px 30px 30px 30px;
   border-radius: 10px;
   position: fixed;
@@ -722,6 +722,11 @@ h1.usuarioh1 {
   animation-name: slidein;
   animation-direction: normal;
 }
+
+.textoLabelUsuario {
+  color: white;
+}
+
 @keyframes slidein {
   from {
     margin-left: 80%;
