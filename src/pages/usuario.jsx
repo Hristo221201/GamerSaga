@@ -16,9 +16,9 @@ export default function Usuario() {
         <>
             <h1 className="usuarioh1" align="center">Tu información</h1>
             <form className="formusuario">
-                <label className="textoLabelUsuario" for="nombreUsuario">Nombre usuario</label>
+                <label for="nombreUsuario">Nombre usuario</label>
                 <input type="text" id="nombreUsuario" name="nombreUsuario" />
-                <label className="textoLabelUsuario" for="email">E-mail</label>
+                <label for="email">E-mail</label>
                 <input type="text" id="email" name="email" />
             </form>
         </>

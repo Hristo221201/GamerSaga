@@ -695,10 +695,6 @@ div.line-wh {
   overflow: hidden;
 }
 
-.textoLabelUsuario {
-  color: white;
-}
-
 h1.usuarioh1 {
   margin-top: 16%;
 }
@@ -726,6 +722,11 @@ h1.usuarioh1 {
   animation-name: slidein;
   animation-direction: normal;
 }
+
+.formusuario label {
+  color: white;
+}
+
 @keyframes slidein {
   from {
     margin-left: 80%;
