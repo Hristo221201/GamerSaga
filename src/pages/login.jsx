@@ -145,7 +145,7 @@ export default function Login() {
         
       };
       
-      // Validar correo cambio de contraseña
+      // Validar correo cambio de contraseñaa
       function validarCorreoCambioContraseña() {
         const correo = document.getElementById('emailCambioContraseña');
         const valorCorreo = correo.value.trim();
