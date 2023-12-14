@@ -5,6 +5,10 @@ import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
 
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
 export default function Login() {
   useEffect(() => {
       // Agrega la clase específica para la página 2 al body
@@ -94,13 +98,11 @@ export default function Login() {
       };
       
       // Validar registro
-      function validarRegistro() {
-        const nombreUsuario = document.getElementById("nombreRegistro");
+      async function validarRegistro() {
+        const nombreUsuario = document.getElementById("nombreRegistro").value;
         const correo = document.getElementById('emailRegistro');
         const valorCorreo = correo.value.trim();
         const contraseña = document.getElementById('passRegistro').value;
-
-        const nuevoUsuario="";
       
         if(!validarEmail(valorCorreo)) {
           Swal.fire('Introduce una dirección de correo electrónico válida');
@@ -110,7 +112,27 @@ export default function Login() {
           //alert('Introduce una contraseña válida');
         } else {
           
-          nuevoUsuario.post("/create", {nombreUsuario,valorCorreo,contraseña});
+          const jsxData = (
+            <div>
+                <p>nombreUsuario: {nombreUsuario}</p>
+                <p>correo: {valorCorreo}</p>
+            </div>
+          );
+          
+          try {
+              const response = await fetch('http://localhost:8080/create', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/jsx', // Custom content type for JSX
+                  },
+                  body: jsxData,
+              });
+
+              const data = await response.json();
+              console.log(data.msg); // Log the response message
+          } catch (error) {
+              console.error('Error creating user:', error);
+          }
 
           var div1=document.getElementById('registro');
           var div2=document.getElementById('container');
