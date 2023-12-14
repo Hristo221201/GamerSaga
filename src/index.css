@@ -695,13 +695,17 @@ div.line-wh {
   overflow: hidden;
 }
 
+.textoLabelUsuario {
+  color: white;
+}
+
 h1.usuarioh1 {
   margin-top: 16%;
 }
 
 .formusuario {
   overflow: hidden;
-  background-color: white;
+  background-color: black;
   padding: 40px 30px 30px 30px;
   border-radius: 10px;
   position: fixed;
