@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { User } from "./bdconection.js";
+import { User } from "./bdconection";
 const app=express();
 app.use(express.json());
 app.use(cors({
