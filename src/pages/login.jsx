@@ -124,7 +124,7 @@ export default function Login() {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                id: user.uid, // Utiliza el UID de Firebase como identificador en la base de datos
+                id: user.uid, // Utiliza el UID de Firebase como identificador en la base de datosss
                 nombre: nombreUsuario,
                 correo: valorCorreo,
                 contraseña: contraseña,
