@@ -125,7 +125,7 @@ export default function Login() {
               }),
             });
             
-            console.log(response);
+            console.log(response.body);
 
             if (response.ok) {
               var div1 = document.getElementById('registro');
