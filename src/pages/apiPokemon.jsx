@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
-
+/*
 import { Link } from 'react-router-dom';
-
+*/
 export default function PokemonAleatorio() {
   useEffect(() => {
     // Agrega la clase específica para la página 2 al body
@@ -125,8 +125,10 @@ export default function PokemonAleatorio() {
           <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Mostrar Pokemons</button>
         </div>
           
-        <Link to={{ pathname: '/pokemonsFavoritos', state: { data } }}>Ir a Favoritos</Link>
+        
         
       </>
     );
 };
+
+// <Link to={{ pathname: '/pokemonsFavoritos', state: { data } }}>Ir a Favoritos</Link>
