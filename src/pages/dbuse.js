@@ -4,7 +4,7 @@ import { User } from "./bdconection.js";
 const app=express();
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:8080', // Ajusta la URL de tu aplicación React
+    origin: 'https://victorious-sky-04f9b6110.4.azurestaticapps.net', // Ajusta la URL de tu aplicación React
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   }));
