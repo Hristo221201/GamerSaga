@@ -4,6 +4,11 @@ import { User } from "./bdconection.js";
 const app=express();
 app.use(express.json());
 app.use(cors());
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+  });
+  
 
 app.get("/", async(req, res) => {
     const snapshot = await User.get();
