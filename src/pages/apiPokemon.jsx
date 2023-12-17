@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import PokemonsFavoritos from './pokemonsFavoritos.jsx';
 
+export { pokemonHistory };
+
 export default function PokemonAleatorio({ key }) {
   useEffect(() => {
     // Agrega la clase específica para la página 2 al body
