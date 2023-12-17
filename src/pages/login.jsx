@@ -96,13 +96,13 @@ export default function Login() {
         } else {
           
           // Autenticar al usuario con Firebase
-          auth.signInWithEmailAndPassword(valorUsuario, contraseña)
+          auth.signInWithEmailAndPassword(valorCorreo, contraseña)
           .then(async (userCredential) => {
             // Usuario autenticado con éxito
             const user = userCredential.user;
             
             // Verificar si el usuario está en la base de datos
-            const userData = await getUserByEmail(valorUsuario);
+            const userData = await getUserByEmail(valorCorreo);
 
             if (userData) {
               // El usuario existe en la base de datos, redirigirlo
@@ -119,7 +119,7 @@ export default function Login() {
           });
 
           return false; // Evita el envío del formulario
-          
+
         }
         
       };
