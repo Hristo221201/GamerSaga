@@ -162,11 +162,8 @@ export default function Login() {
               div1.style.display = 'none';
               div2.style.display = 'block';
 
-              var correoInicioSesion = document.getElementById('correoInicioSesion').value;
-              var contraseñaInicioSesion = document.getElementById('contraseñaInicioSesion').value;
-
-              correoInicioSesion = valorCorreo;
-              contraseñaInicioSesion = contraseña;
+              var correoInicioSesion = document.getElementById('correoInicioSesion');
+              correoInicioSesion.textContent = valorCorreo;
 
             } else {
               console.error('Error al crear usuario en el servidor');

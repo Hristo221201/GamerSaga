@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 
-export default function PokemonAleatorio({ key }) {
+export default function PokemonAleatorio() {
   useEffect(() => {
     // Agrega la clase específica para la página 2 al body
     document.body.classList.add('body-paginaPokemon');
@@ -49,7 +49,7 @@ export default function PokemonAleatorio({ key }) {
 
       miFuncionAsyncRef.current = obtenerPokemonAleatorio;
 
-    }, [key]);
+    }, []);
   
     const obtener4PokemonAleatorios = async () => {
       if (miFuncionAsyncRef.current) { 
