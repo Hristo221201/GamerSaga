@@ -15,17 +15,21 @@ export default function PokemonsFavoritos({ arrayPokemonsFavoritos }) {
         <>
             <h1>Pokémon Favoritos</h1>
 
-            {arrayPokemonsFavoritos.map((pokemon, index) => (
-                  <div key={index}>
-                      <p>Nombre: {pokemon.nombre}</p>
-                      <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
-                      <p>Tipos: {pokemon.tipos.join(', ')}</p>
-                      <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
-                      <br/>
-                  </div>
+            {arrayPokemonsFavoritos.map((item, index) => (
+                  <li key={index}>{item}</li>
                 ))};
 
         </>
     );
 
 }
+
+/*
+<div key={index}>
+    <p>Nombre: {pokemon.nombre}</p>
+    <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
+    <p>Tipos: {pokemon.tipos.join(', ')}</p>
+    <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+    <br/>
+</div>
+*/
