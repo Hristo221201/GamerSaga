@@ -4,8 +4,12 @@ import 'sweetalert2/dist/sweetalert2.css'
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-
-import { auth } from './bdconection';
+/*
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+*/
+import { auth, db, User } from './bdconection';
 
 export default function Login() {
   useEffect(() => {
@@ -144,7 +148,7 @@ export default function Login() {
         }
       };
       
-      // Validar correo cambio de contraseñaaaa
+      // Validar correo cambio de contraseña
       function validarCorreoCambioContraseña() {
         const correo = document.getElementById('emailCambioContraseña');
         const valorCorreo = correo.value.trim();
