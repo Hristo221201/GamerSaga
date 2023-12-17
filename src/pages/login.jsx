@@ -115,7 +115,7 @@ export default function Login() {
         } else {
           try {
             // Realiza una solicitud al servidor Express para crear el usuario en la base de datos
-            const response = await fetch('https://localhost:8080/create', {
+            const response = await fetch('http://localhost:8080/create', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
