@@ -111,7 +111,7 @@ export default function Login() {
         } else {
           try {
             // Crea el usuario en Firebase Authentication
-            const { user } = await auth.createUserWithEmailAndPassword(valorCorreo, contraseña);
+            await auth.createUserWithEmailAndPassword(valorCorreo, contraseña);
 
             // Realiza una solicitud al servidor Express para crear el usuario en la base de datos
             const response = await fetch('http://localhost:8080/create', {
@@ -120,7 +120,6 @@ export default function Login() {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                id: user.uid, // Utiliza el UID de Firebase como identificador en la base de datos
                 nombre: nombreUsuario,
                 correo: valorCorreo,
                 contraseña: contraseña
