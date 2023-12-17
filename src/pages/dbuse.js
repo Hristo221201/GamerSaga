@@ -1,13 +1,9 @@
 import express from "express";
 import cors from "cors";
-import { User } from "./bdconection";
+import { User } from "./bdconection.js";
 const app=express();
 app.use(express.json());
-app.use(cors({
-    origin: 'https://victorious-sky-04f9b6110.4.azurestaticapps.net', // Ajusta la URL de tu aplicación React
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  }));
+app.use(cors());
 
 app.get("/", async(req, res) => {
     const snapshot = await User.get();

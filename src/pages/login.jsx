@@ -5,6 +5,8 @@ import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
 
+import { auth } from './bdconection';
+
 export default function Login() {
   useEffect(() => {
       // Agrega la clase específica para la página 2 al body
@@ -108,6 +110,9 @@ export default function Login() {
           Swal.fire('Introduce una contraseña válida');
         } else {
           try {
+            // Crea el usuario en Firebase Authentication
+            const { user } = await auth.createUserWithEmailAndPassword(valorCorreo, contraseña);
+
             // Realiza una solicitud al servidor Express para crear el usuario en la base de datos
             const response = await fetch('http://localhost:8080/create', {
               method: 'POST',
@@ -115,6 +120,7 @@ export default function Login() {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
+                id: user.uid, // Utiliza el UID de Firebase como identificador en la base de datos
                 nombre: nombreUsuario,
                 correo: valorCorreo,
                 contraseña: contraseña
