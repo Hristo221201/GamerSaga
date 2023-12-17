@@ -4,11 +4,11 @@ import 'sweetalert2/dist/sweetalert2.css'
 import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
-/*
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-*/
+
 import { auth, db, User } from './bdconection';
 
 export default function Login() {
