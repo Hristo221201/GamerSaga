@@ -12,9 +12,14 @@ app.get("/", async(req, res) => {
 });
 
 app.post("/create", async(req, res) => {
-    const data = req.body;
-    await User.add({ data });
-    res.send({ msg:"User Added" });
+    try {
+        const data = req.body;
+        await User.add(data);
+        res.send({ msg: "User Added" });
+    } catch (error) {
+        console.error("Error al crear usuario:", error);
+        res.status(500).send({ msg: "Error al crear usuario" });
+    }
 });
 
 app.post("/update", async(req, res) => {
