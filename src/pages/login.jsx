@@ -78,11 +78,11 @@ export default function Login() {
       const goto=useNavigate();
 
       function validarInicioSesion() {
-        const usuario = document.getElementById('correo');
-        const valorUsuario = usuario.value.trim();
+        const correo = document.getElementById('correo');
+        const valorCorreo = correo.value.trim();
         const contraseña = document.getElementById('contraseña').value;
       
-        if(!validarEmail(valorUsuario)) {
+        if(!validarEmail(valorCorreo)) {
           Swal.fire('Introduce una dirección de correo electrónico válida');
         } else if(contraseña.length < 8) {
           Swal.fire('Introduce una contraseña válida');
@@ -90,7 +90,7 @@ export default function Login() {
           
           goto("/paginaprincipal");
           
-          return contraseña && valorUsuario;
+          return contraseña && valorCorreo;
         }
         
       };
@@ -133,6 +133,13 @@ export default function Login() {
     
               div1.style.display = 'none';
               div2.style.display = 'block';
+
+              const correoInicioSesion = document.getElementById('correo').value;
+              const contraseñaInicioSesion = document.getElementById('contraseña').value;
+
+              correoInicioSesion = valorCorreo;
+              contraseñaInicioSesion = contraseña;
+
             } else {
               console.error('Error al crear usuario en el servidor');
               Swal.fire('Error al crear usuario');
