@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { auth } from './bdconection';
 
 export default function Usuario() {
 

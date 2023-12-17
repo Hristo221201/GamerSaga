@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
 
 import { auth } from './bdconection';
+import { db } from './bdconection';
 
 export default function Login() {
   useEffect(() => {
@@ -77,6 +78,12 @@ export default function Login() {
       
       const goto=useNavigate();
 
+      // Función para obtener el usuario por correo electrónico desde la base de datos
+      async function getUserByEmail(email) {
+        const querySnapshot = await db.collection("Users").where("correo", "==", email).get();
+        return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))[0];
+      }
+
       function validarInicioSesion() {
         const correo = document.getElementById('correoInicioSesion');
         const valorCorreo = correo.value.trim();
@@ -88,9 +95,31 @@ export default function Login() {
           Swal.fire('Introduce una contraseña válida');
         } else {
           
-          goto("/paginaprincipal");
+          // Autenticar al usuario con Firebase
+          auth.signInWithEmailAndPassword(valorUsuario, contraseña)
+          .then(async (userCredential) => {
+            // Usuario autenticado con éxito
+            const user = userCredential.user;
+            
+            // Verificar si el usuario está en la base de datos
+            const userData = await getUserByEmail(valorUsuario);
+
+            if (userData) {
+              // El usuario existe en la base de datos, redirigirlo
+              goto("/paginaprincipal");
+            } else {
+              // El usuario no está en la base de datos
+              Swal.fire('Usuario no encontrado en la base de datos');
+            }
+          })
+          .catch((error) => {
+            // Manejar errores de autenticación
+            Swal.fire('Error al iniciar sesión. Verifica tus credenciales.');
+            console.error("Error al iniciar sesión:", error);
+          });
+
+          return false; // Evita el envío del formulario
           
-          return contraseña && valorCorreo;
         }
         
       };
@@ -179,8 +208,8 @@ export default function Login() {
                 </span>
                 
                 <form className="formInicioSesion">
-                    <input type="text" id="correoInicioSesion" name="correo" placeholder="E-mail" />
-                    <input type="password" id="contraseñaInicioSesion" name="pass" placeholder="Contraseña" />
+                    <input type="text" id="correoInicioSesion" name="correo" placeholder="E-mail" required />
+                    <input type="password" id="contraseñaInicioSesion" name="pass" placeholder="Contraseña" required />
                     <a href="#" onClick={validarInicioSesion} id="botonInicioSesion" className="botonInicioSesion aLogin">Inicio Sesión</a>
                     <div id="remember-container">
                         <span id="forgotten" onClick={contraseñaOlvidada}>¿Olvidaste tu contraseña?, Pulsa aqui y cambiala.</span>
