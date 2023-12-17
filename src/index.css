@@ -639,10 +639,6 @@ div.line-wh {
   display: none;
 }
 
-.pokemonsFavoritosAgregados {
-  display: none;
-}
-
 /* SIDEBAR IMAGENES */
 .divSidebar {
   display: flex;

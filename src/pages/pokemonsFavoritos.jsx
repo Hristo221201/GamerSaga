@@ -1,7 +1,6 @@
-import PokemonAleatorio from './apiPokemon';
 import React, { useEffect } from 'react';
 
-export default function PokemonsFavoritos() {
+export default function PokemonsFavoritos({ arrayPokemonsFavoritos }) {
     useEffect(() => {
         // Agrega la clase específica para la página 2 al body
         document.body.classList.add('body-pokemonFavoritos');
@@ -12,13 +11,19 @@ export default function PokemonsFavoritos() {
         };
     }, [])
 
-    const arrayPokemonsFavoritos = [];
-
     return(
         <>
             <h1>Pokémon Favoritos</h1>
 
-            <PokemonsFavoritos pokemonHistory={arrayPokemonsFavoritos} />
+            {arrayPokemonsFavoritos.map((pokemon, index) => (
+                  <div key={index}>
+                      <p>Nombre: {pokemon.nombre}</p>
+                      <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
+                      <p>Tipos: {pokemon.tipos.join(', ')}</p>
+                      <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+                      <br/>
+                  </div>
+                ))};
 
         </>
     );
