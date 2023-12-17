@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 
-export default function PokemonAleatorio() {
+export default function PokemonAleatorio({ pokemonHistory }) {
   useEffect(() => {
     // Agrega la clase específica para la página 2 al body
     document.body.classList.add('body-paginaPokemon');
@@ -121,6 +121,18 @@ export default function PokemonAleatorio() {
 
         <div align="center">
           <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Mostrar Pokemons</button>
+        </div>
+
+        <div className="pokemonsFavoritosAgregados">
+          {pokemonHistory.map((pokemon, index) => (
+                  <div key={index}>
+                      <p>Nombre: {pokemon.nombre}</p>
+                      <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
+                      <p>Tipos: {pokemon.tipos.join(', ')}</p>
+                      <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+                      <br/>
+                  </div>
+                ))};
         </div>
       </>
     );

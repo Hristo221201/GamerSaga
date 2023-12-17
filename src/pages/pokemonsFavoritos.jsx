@@ -1,7 +1,7 @@
-//import PokemonAleatorio { pokemonHistory } from './apiPokemon';
+import PokemonAleatorio from './apiPokemon';
 import React, { useEffect } from 'react';
 
-export default function PokemonsFavoritos() { // { pokemonHistory }
+export default function PokemonsFavoritos() {
     useEffect(() => {
         // Agrega la clase específica para la página 2 al body
         document.body.classList.add('body-pokemonFavoritos');
@@ -10,26 +10,17 @@ export default function PokemonsFavoritos() { // { pokemonHistory }
         return () => {
             document.body.classList.remove('body-pokemonFavoritos');
         };
-    }, []) // pokemonHistory
+    }, [])
+
+    const arrayPokemonsFavoritos = [];
 
     return(
         <>
-            
+            <h1>Pokémon Favoritos</h1>
+
+            <PokemonsFavoritos pokemonHistory={arrayPokemonsFavoritos} />
+
         </>
     );
 
 }
-
-/*
-
-    <h1>Pokémon Favoritos</h1>
-    {pokemonHistory.map((pokemon, index) => (
-        <div key={index}>
-            <p>Nombre: {pokemon.nombre}</p>
-            <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
-            <p>Tipos: {pokemon.tipos.join(', ')}</p>
-            <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
-        </div>
-    ))};
-
-*/
