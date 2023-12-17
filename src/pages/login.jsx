@@ -9,8 +9,6 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
-import { auth, db, User } from './bdconection';
-
 export default function Login() {
   useEffect(() => {
       // Agrega la clase específica para la página 2 al body
