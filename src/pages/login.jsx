@@ -78,9 +78,9 @@ export default function Login() {
       const goto=useNavigate();
 
       function validarInicioSesion() {
-        const correo = document.getElementById('correo');
+        const correo = document.getElementById('correoInicioSesion');
         const valorCorreo = correo.value.trim();
-        const contraseña = document.getElementById('contraseña').value;
+        const contraseña = document.getElementById('contraseñaInicioSesion').value;
       
         if(!validarEmail(valorCorreo)) {
           Swal.fire('Introduce una dirección de correo electrónico válida');
@@ -133,8 +133,8 @@ export default function Login() {
               div1.style.display = 'none';
               div2.style.display = 'block';
 
-              var correoInicioSesion = document.getElementById('correo').value;
-              var contraseñaInicioSesion = document.getElementById('contraseña').value;
+              var correoInicioSesion = document.getElementById('correoInicioSesion').value;
+              var contraseñaInicioSesion = document.getElementById('contraseñaInicioSesion').value;
 
               correoInicioSesion = valorCorreo;
               contraseñaInicioSesion = contraseña;
@@ -179,8 +179,8 @@ export default function Login() {
                 </span>
                 
                 <form className="formInicioSesion">
-                    <input type="text" id="correo" name="correo" placeholder="E-mail" />
-                    <input type="password" id="contraseña" name="pass" placeholder="Contraseña" />
+                    <input type="text" id="correoInicioSesion" name="correo" placeholder="E-mail" />
+                    <input type="password" id="contraseñaInicioSesion" name="pass" placeholder="Contraseña" />
                     <a href="#" onClick={validarInicioSesion} id="botonInicioSesion" className="botonInicioSesion aLogin">Inicio Sesión</a>
                     <div id="remember-container">
                         <span id="forgotten" onClick={contraseñaOlvidada}>¿Olvidaste tu contraseña?, Pulsa aqui y cambiala.</span>
