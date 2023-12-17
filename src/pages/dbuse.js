@@ -3,7 +3,11 @@ import cors from "cors";
 import { User } from "./bdconection.js";
 const app=express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:8080', // Ajusta la URL de tu aplicación React
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  }));
 
 app.get("/", async(req, res) => {
     const snapshot = await User.get();

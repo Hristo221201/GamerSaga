@@ -5,10 +5,6 @@ import { useauth } from "../utils/authprovider";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from 'react';
 
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-
 export default function Login() {
   useEffect(() => {
       // Agrega la clase específica para la página 2 al body
@@ -124,8 +120,6 @@ export default function Login() {
                 contraseña: contraseña
               }),
             });
-            
-            console.log(response.body);
 
             if (response.ok) {
               var div1 = document.getElementById('registro');
