@@ -133,8 +133,8 @@ export default function Login() {
               div1.style.display = 'none';
               div2.style.display = 'block';
 
-              const correoInicioSesion = document.getElementById('correo').value;
-              const contraseñaInicioSesion = document.getElementById('contraseña').value;
+              var correoInicioSesion = document.getElementById('correo').value;
+              var contraseñaInicioSesion = document.getElementById('contraseña').value;
 
               correoInicioSesion = valorCorreo;
               contraseñaInicioSesion = contraseña;
