@@ -121,10 +121,12 @@ export default function Login() {
               body: JSON.stringify({
                 nombre: nombreUsuario,
                 correo: valorCorreo,
-                contraseña: contraseña,
+                contraseña: contraseña
               }),
             });
-    
+            
+            console.log(response);
+
             if (response.ok) {
               var div1 = document.getElementById('registro');
               var div2 = document.getElementById('container');
