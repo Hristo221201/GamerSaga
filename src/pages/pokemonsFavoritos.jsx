@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-export default function PokemonsFavoritos({ arrayPokemonsFavoritos }) {
+export default function PokemonsFavoritos(props) {
     useEffect(() => {
         // Agrega la clase específica para la página 2 al body
         document.body.classList.add('body-pokemonFavoritos');
@@ -11,25 +11,22 @@ export default function PokemonsFavoritos({ arrayPokemonsFavoritos }) {
         };
     }, [])
 
+    const { data } = props.location.state;
+
     return(
         <>
             <h1>Pokémon Favoritos</h1>
-
-            {arrayPokemonsFavoritos.map((item, index) => (
-                  <li key={index}>{item}</li>
+            {data.map((pokemon, index) => (
+                  <div key={index}>
+                    <p>Nombre: {pokemon.nombre}</p>
+                    <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
+                    <p>Tipos: {pokemon.tipos.join(', ')}</p>
+                    <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
+                    <br/>
+                  </div>
                 ))};
 
         </>
     );
 
 }
-
-/*
-<div key={index}>
-    <p>Nombre: {pokemon.nombre}</p>
-    <img src={pokemon.imagen} alt={pokemon.nombre}  id="imagenPokemon" />
-    <p>Tipos: {pokemon.tipos.join(', ')}</p>
-    <p>Habilidades: {pokemon.habilidades.join(', ')}</p>
-    <br/>
-</div>
-*/

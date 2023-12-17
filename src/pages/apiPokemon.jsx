@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 
-import PokemonsFavoritos from './pokemonsFavoritos';
+import { Link } from 'react-router-dom';
 
 export default function PokemonAleatorio() {
   useEffect(() => {
@@ -124,9 +124,9 @@ export default function PokemonAleatorio() {
         <div align="center">
           <button className="botonRecargarAPI" id="botonRecargarAPI" onClick={obtener4PokemonAleatorios}>Mostrar Pokemons</button>
         </div>
-
-        <PokemonsFavoritos arrayPokemonsFavoritos={pokemonHistory} />
-
+          
+        <Link to={{ pathname: '/pokemonsFavoritos', state: { data } }}>Ir a Favoritos</Link>
+        
       </>
     );
 };
