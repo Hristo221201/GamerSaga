@@ -107,13 +107,13 @@ const ImagenesJuegos = ({ juego, imagenes, logoUrl, infoJuego }) => {
                     {imagenes.map(( image, index ) => (
                         <>
                             <p id={index+1} key={index+1}>{image.name.split(".")[0].toUpperCase()}</p>
-                            <img src={image.url} id={image.name.split(".")[0]} onClick={() => mostrarImagen(image.url)}></img>
+                            <img src={image.url} id={image.name.split(".")[0]} alt={`Imagen de ${image.name}`} onClick={() => mostrarImagen(image.url)}></img>
                         </>
                     ))}
                     
                 </div>
                 <div className="contenidoSidebar">
-                    <img id={`imagenMostrada${juego}`} src={selectedImage} alt="Imagen mostrada" />
+                    <img id={`imagenMostrada${juego}`} src={selectedImage} />
                 </div>
             </div>
             <div align="center">
