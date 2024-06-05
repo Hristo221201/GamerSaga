@@ -1,0 +1,952 @@
+/* CSS PAGINA INICIO */
+.body-inicio{
+    padding:0px;
+    margin: 0px;
+    background-color: #807c7c;
+    width:100%;
+    height:100vh;
+}
+
+.caja{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height:auto;
+}
+
+.botonInicio{
+    width:200px;
+    height:70px;
+    background: linear-gradient(to left top, #070707 50%, #000000 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 23px;
+    letter-spacing: 3px;
+    font-family: 'Lato';
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+
+.botonInicio span{
+    position: absolute;
+    display: block;
+}
+
+.botonInicio span:nth-child(1){
+    height: 3px;
+    width:200px;
+    top:0px;
+    left:-200px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #ffffff);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+}
+
+.botonInicio span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #adadad);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+}
+
+.botonInicio span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #ffffff);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+
+@keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+}
+
+.botonInicio span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #adadad);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+
+@keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+
+.botonInicio:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+
+.botonInicio:hover span{
+    animation-play-state: paused;
+}
+
+
+
+
+
+/* CSS PAGINA LOGIN */
+.body-login { 
+    background: rgb(163, 162, 162) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+  }
+  
+  .imglogin{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+  
+  #login-button{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(3,3,3,.8);
+    overflow: hidden;
+    opacity: 0.4;
+    box-shadow: 10px 10px 30px #000;
+  }
+  
+  /* Login container */
+  #container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 320px;
+    height: 260px;
+    border-radius: 5px;
+    background: rgba(3,3,3,0.25);
+    box-shadow: 1px 1px 50px #000;
+    display: none;
+  }
+  
+  .close-btn{
+    position: absolute;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 18px;
+    top: 3px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    opacity: .2;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .close-btn:hover{
+    opacity: .5;
+  }
+
+  /* Register container */
+  #registro{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 280px;
+    height: 250px;
+    border-radius: 5px;
+    background: rgba(3,3,3,0.25);
+    box-shadow: 1px 1px 50px #000;
+    display: none;
+  }
+  
+  .close-btn{
+    position: absolute;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+    line-height: 18px;
+    top: 3px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    opacity: .2;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .close-btn:hover{
+    opacity: .5;
+  }
+  
+  /* Heading */
+  h1.loginh1{
+    font-family: 'Open Sans Condensed', sans-serif;
+    position: relative;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 40px;
+    color: #ddd;
+    text-shadow: 3px 3px 10px #000;
+  }
+  
+  /* Inputs */
+  a.aLogin,
+  input{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: none;
+    position: relative;
+    width: 80%;
+    display: block;
+    margin: 9px auto;
+    font-size: 17px;
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(3,3,3,.1);
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  input:focus{
+    outline: none;
+    box-shadow: 3px 3px 10px #333;
+    background: rgba(3,3,3,.18);
+  }
+  
+  /* Placeholders */
+  ::-webkit-input-placeholder {
+     color: #ddd;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+     color: red;
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: red;
+  }
+  :-ms-input-placeholder {  
+     color: #333;
+  }
+  
+  /* Link */
+  a.aLogin{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    padding: 4px 8px;
+    background: rgba(107,255,3,0.3);
+  }
+  
+  a.aLogin:hover{
+    opacity: 0.7;
+  }
+  
+  #remember-container{
+    position: relative;
+    margin: -5px 26px;
+  }
+  
+  .checkbox {
+    position: relative;
+    cursor: pointer;
+      /*-webkit-appearance: none;*/
+      padding: 5px;
+      border-radius: 4px;
+    background: rgba(3,3,3,.2);
+      display: inline-block;
+    width: 16px;
+    height: 15px;
+  }
+  
+  .checkbox:checked:active {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .checkbox:checked {
+    background: rgba(3,3,3,.4);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.5);
+      color: #fff;
+  }
+  
+  .checkbox:checked:after {
+      content: '\2714';
+      font-size: 10px;
+      position: absolute;
+      top: 1px;
+      left: 4px;
+      color: #fff;
+  }
+  
+  #botonRegistro {
+    top: 20px;
+  }
+  
+  #forgotten{
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Hind', sans-serif;
+    color: rgba(255,255,255,.2);
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  #forgotten:hover{
+    color: rgba(255,255,255,.6);
+  }
+  
+  #forgotten-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 460px;
+    height: 160px;
+    border-radius: 10px;
+    background: rgba(3,3,3,0.25);
+    box-shadow: 1px 1px 50px #000;
+    display: none;
+  }
+  
+  .orange-btn{
+    background: rgba(87,198,255,.5);
+  }
+
+
+
+
+
+/* CSS PAGINA PAGINAPRINCIPAL */
+.body-paginaprincipal {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 90vh;
+    overflow: hidden;
+  }
+
+  .textoEnlaces {
+    margin-top: 32px;
+  }
+
+  h3.textoh3 {
+    font-weight: bold; font-size: 30px; 
+    background: #202020; 
+    -webkit-background-clip: text; 
+    -moz-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+  }
+
+  .textoEncimaDeSidebar {
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
+  }
+  
+  .container1 {
+    display: flex;
+    height: 5vh;
+  }
+  .containerMedio {
+    display: flex;
+    height: 90vh;
+  }
+  .container2 {
+    flex: 1;
+    min-width: 20%;
+    max-width: 20%;
+    min-height: 100%;
+    max-height: 100%;
+  }
+  .container3 {
+    flex: 1;
+    min-width: 80%;
+    max-width: 80%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  .container4 {
+    display: flex;
+    height: 5vh;
+    width: 99.90%;
+  }
+  
+  .sidebar {
+    flex: 1;
+    background-color: white;
+    padding: 10px;
+  }
+  
+  .main-content {
+    flex: 2;
+    background: linear-gradient(to top, black 97%, white), linear-gradient(to right, black, #d8d7d5 3%), linear-gradient(to bottom, black, #d8d7d5 3%);
+    padding: 20px;
+    color:#ffffff;
+    background-clip: padding-box; /* Asegura que el degradado no afecte a la región de relleno */
+    height: 100%;
+  }
+
+  .general-content {
+    flex: 2;
+    background: linear-gradient(to top, #d8d7d5 97%, white);
+    padding: 20px;
+    color:#000000;
+  }
+  
+  .aside {
+    flex: 1;
+    background: linear-gradient(180deg, black, #d8d7d5 12%);
+    /*padding: 2px;*/
+    overflow: hidden; /* Para quitar la barra de posicion */
+  }
+
+
+/* Ir al principio de la pagina */
+  .botonHaciaArriba {
+    position: sticky;
+    bottom: 0;
+    left: 100%;
+  }
+
+  #imagenIrHaciaArriba {
+    width: 40px;
+    height: 40px;
+  }
+  
+
+/* Parte menu */
+div#parteDerMenu {
+    text-align: right;
+    align-content: space-between;
+}
+div#parteDerMenu img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#contenidoMenuUsuario {
+    display: none;
+}
+
+
+
+/* Estilos básicos para la imagen y el menú desplegable */
+.contenedor0Menu {
+  position: relative;
+  display: inline-block;
+}
+.contenedor1Menu {
+    position: relative;
+    display: inline-block;
+}
+.contenedor2Menu {
+    position: relative;
+    display: inline-block;
+}
+.contenedor3Menu {
+    position: relative;
+    display: inline-block;
+}
+
+.imagen {
+    display: inline-block;
+}
+
+.menu-desplegable {
+    display: none;
+    position: absolute;
+    top: 100%; /* Muestra el menú debajo de la imagen */
+    right: 30%;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Muestra el menú cuando el ratón está sobre el contenedor */
+.contenedor0Menu:hover .menu-desplegable {
+  display: block;
+}
+.contenedor1Menu:hover .menu-desplegable {
+    display: block;
+}
+.contenedor2Menu:hover .menu-desplegable {
+    display: block;
+}
+.contenedor3Menu:hover .menu-desplegable {
+    display: block;
+}
+
+.menu-item {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+.menu-item:hover {
+    background-color: #ddd;
+}
+
+/* Parte enlaces */
+.line-wh {
+    width: 100%;
+    height: 1px;
+    top: 0px;
+    margin: 12px auto;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+div.line-wh {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+#listaEnlaces a {
+    text-decoration: none;
+    color: white;
+}
+
+#listaEnlaces img {
+  width: 210px;
+  height: 140px;
+}
+
+.botonPreguntaRapida {
+    background: rgb(107, 106, 106);
+    color: white;
+    border-color: white 2px;
+}
+
+
+/* FOOTER */
+#footer {
+  margin-top: 7px;
+  animation-duration: 8s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes slidein {
+  from {
+    margin-left: 80%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+/* Parte Contenido */
+#contenido-RocketLeague {
+  display: block;
+}
+
+#contenido-LeagueOfLegends {
+  display: none;
+}
+
+#contenido-CounterStrike {
+  display: none;
+}
+
+#contenido-Pokemon {
+  display: none;
+}
+
+/* SIDEBAR IMAGENES */
+.divSidebar {
+  display: flex;
+}
+
+.imagenesSidebar {
+  width: 100px;
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagenesSidebar img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
+
+.imagenesSidebar p {
+  color: white;
+}
+
+.contenidoSidebar {
+  flex: 1;
+  padding: 20px;
+}
+
+.contenidoSidebar img {
+  width: 80%;
+  height: auto;
+  border: 2px solid #333;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+}
+
+.imagenLogoPokemon {
+  width: 325px;
+  height: 225px;
+}
+
+
+
+/* CSS PAGINA USUARIO */
+.body-usuario {
+  background-color: #d8d7d5;
+  font-family: "Asap", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1.usuarioh1 {
+  margin-top: 16%;
+}
+
+.formusuario {
+  overflow: hidden;
+  background-color: black;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+  -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px #d8d7d5;
+
+  animation-duration: 5s;
+  animation-name: slidein;
+  animation-direction: normal;
+}
+
+.textoLabelUsuario {
+  color: white;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 80%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.formusuario::before, .login::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+
+.formusuario::before {
+  left: 40%;
+  bottom: -130%;
+  background-color: rgba(105, 104, 104, 0.2);
+  -webkit-animation: wawes 6s infinite linear;
+  -moz-animation: wawes 6s infinite linear;
+  animation: wawes 6s infinite linear;
+}
+
+.formusuario::after {
+  left: 35%;
+  bottom: -125%;
+  background-color: rgba(23, 24, 24, 0.2);
+  -webkit-animation: wawes 7s infinite;
+  -moz-animation: wawes 7s infinite;
+  animation: wawes 7s infinite;
+}
+
+.formusuario > input {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0.1;
+  border-color: black;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+
+@-webkit-keyframes wawes {
+  from {
+      -webkit-transform: rotate(0);
+  }
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes wawes {
+  from {
+      -moz-transform: rotate(0);
+  }
+  to {
+      -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes wawes {
+  from {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0);
+  }
+  to {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+/* CSS PAGINA CAMBIOCONTRASEÑA */
+.body-cambiocontraseña {
+  background-color: rgb(172, 168, 168);
+  height: 100vh;
+  overflow: hidden;
+}
+
+a.aCambioContraseña {
+  background: rgba(87,198,255,.5);
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 20px;
+  font-size: 17px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+a.aCambioContraseña:hover{
+  opacity: 0.7;
+}
+
+.divCambioContraseña {
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+
+/* CSS POKEMONAPI */
+.body-paginaPokemon {
+  background: linear-gradient(to top, #d8d7d5 97%, white);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.divRecuadro {
+  text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.aPokemons {
+  margin: 15px;
+  box-shadow: 0px 0px 18px 0px rgb(0 0 0 / 17%);
+  border-radius: 15px !important;
+  max-width: 220px;
+  min-width: 220px;
+  padding: 20px;
+  background: linear-gradient(16deg, #e9e7f2, #ffffff)!important;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.aPokemons::before {
+  content: "";
+  /*background-image: url("/wp-content/uploads/2022/09/Favicon-500.png");*/ /* Ruta a la imagen isotipo.png */
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se ajuste completamente dentro del contenedor */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  height: 13%; /* Ajusta la altura al 100% del contenedor */
+  position: absolute;
+  top: 18px;
+  left: 0;
+  border-radius: 15px;
+}
+
+.aPokemons:hover {
+  text-decoration: none;
+  transform: scale(1.1); /* Hacemos un zoom al 110% del tamaño original */
+}
+
+a.aPokemons {
+  text-decoration: none;
+}
+
+.divEspaciado {
+  margin-bottom: 18px; /* Espaciado opcional entre la imagen y el texto */
+}
+
+.nombreYfotoPokemon {
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 18px;
+  border-radius: 10px 10px 0 0;
+  font-family: avenirnextcyr-heavy;
+  color: #3f2a56;
+}
+
+.descripcionPokemon {
+  color: #3f2a56;
+}
+
+.botonRecargarAPI {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 20px;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.botonRecargarAPI:hover {
+  color: #2196F3;
+  border-color: #2196F3;
+  background: transparent;
+}
+
+
+/* CSS POKEMON FAVORITOS */
+.body-pokemonFavoritos {
+  background: linear-gradient(to top, #d8d7d5 97%, white);
+  height: 100vh;
+  overflow-y: auto;
+}
