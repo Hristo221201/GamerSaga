@@ -1042,3 +1042,9 @@ a.aPokemons {
 #botonNuevoJuego {
   display: block;
 }
+
+
+
+.swal-wide{
+  width: 80px !important;
+}
