@@ -154,7 +154,13 @@ export default function PokemonsFavoritos() {
 
                 <div>
                     <button onClick={() => setIsModalOpen(true)}>Compartir Favoritos</button>
-                    <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+                    <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)} style={{
+                        content: {
+                            width: '300px',
+                            height: '200px',
+                            margin: 'auto'
+                        }
+                    }}>
                         <h2>Seleccionar usuario</h2>
                         <select onChange={(e) => setSelectedUser(e.target.value)} value={selectedUser}>
                             <option value="0">Seleccionar usuario</option>
