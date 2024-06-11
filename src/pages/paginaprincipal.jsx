@@ -431,7 +431,6 @@ export default function PaginaPrincipal() {
     const botonAñadirNuevoJuego = () => {
         Swal.fire({
             title: 'Añadir Juego Nuevo',
-            customClass: 'swal-wide',
             html:
               `<input id="nombreJuegoNuevo" class="swal2-input" placeholder="Nombre del juego">
               <p id="textoImagenLogoJuegoNuevo" class="swal2-file">Selecciona la imagen que sera el logo:</p>
